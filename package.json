@@ -1,0 +1,62 @@
+{
+  "name": "wiki-exp",
+  "version": "0.1.0",
+  "description": "Experimental refactor of Federated Wiki",
+  "author": {
+    "name": "Paul Rodwell",
+    "email": "paul.rodwell@btinternet.com",
+    "url": "http://wiki-paul90.rhcloud.com"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "coffee-script": "*",
+    "coffee-trace": "~1.4.0",
+    "wiki-server": "git://github.com/paul90/wiki#paul90/refactor",
+    "wiki-client": "git://github.com/paul90/wiki-client#paul90/refactor",
+    "wiki-plugin-activity": "0.1",
+    "wiki-plugin-bytebeat": "0.1",
+    "wiki-plugin-calculator": "0.1",
+    "wiki-plugin-calendar": "0.1",
+    "wiki-plugin-changes": "0.1",
+    "wiki-plugin-chart": "0.1",
+    "wiki-plugin-code": "0.1",
+    "wiki-plugin-data": "0.1",
+    "wiki-plugin-efficiency": "0.1",
+    "wiki-plugin-factory": "0.1",
+    "wiki-plugin-favicon": "0.1",
+    "wiki-plugin-federatedwiki": "0.1",
+    "wiki-plugin-force": "0.1",
+    "wiki-plugin-image": "0.1",
+    "wiki-plugin-line": "0.1",
+    "wiki-plugin-linkmap": "0.1",
+    "wiki-plugin-logwatch": "0.1",
+    "wiki-plugin-map": "0.1",
+    "wiki-plugin-mathjax": "0.1",
+    "wiki-plugin-metabolism": "0.1",
+    "wiki-plugin-method": "0.1",
+    "wiki-plugin-pagefold": "0.1",
+    "wiki-plugin-paragraph": "0.1",
+    "wiki-plugin-parse": "0.1",
+    "wiki-plugin-pushpin": "0.1",
+    "wiki-plugin-radar": "0.1",
+    "wiki-plugin-reduce": "0.1",
+    "wiki-plugin-reference": "0.1",
+    "wiki-plugin-report": "0.1",
+    "wiki-plugin-rollup": "0.1",
+    "wiki-plugin-scatter": "0.1",
+    "wiki-plugin-twadio": "0.1",
+    "wiki-plugin-txtzyme": "0.1"
+  },
+  "devDependencies": {},
+  "main": "server.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/paul90/wiki-exp.git"
+  },
+  "bugs": {
+    "url": "https://github.com/paul90/wiki-exp/issues"
+  },
+  "engines": {
+    "node": "0.10"
+  }
+}
