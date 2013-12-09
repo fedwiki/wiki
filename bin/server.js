@@ -124,7 +124,8 @@ var WikiWrapper = function() {
 
         // I'm sure there must be a better way of doing this, but it works and that is good enough
 
-        var wikiCli = path.join(__dirname, 'node_modules/wiki-server/lib/cli');
+        var wikiCli = path.join(__dirname, '..', 'node_modules/wiki-server/lib/cli');
+        wikiCli = path.resolve(wikiCli);
         require(wikiCli);
     };
 

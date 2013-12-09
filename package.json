@@ -48,7 +48,9 @@
     "wiki-plugin-txtzyme": "0.1"
   },
   "devDependencies": {},
-  "main": "server.js",
+  "scripts": {
+    "start": "node bin/server.js"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/paul90/wiki-exp.git"
