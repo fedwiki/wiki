@@ -1,6 +1,9 @@
 {
   "name": "wiki-exp",
   "version": "0.1.0",
+  "bin": {
+    "wiki-exp": "./bin/server.js"
+  },
   "description": "Experimental refactor of Federated Wiki",
   "author": {
     "name": "Paul Rodwell",
