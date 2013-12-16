@@ -87,6 +87,7 @@ The leveldb datastore allows for a graceful upgrade path. If a page is not found
 The wiki consists of a number of GitHub repositories / packages, that contain the server, client and plugins. You will need to get the code for this repository together with that for the other components you wish to work on.
 
 The current repositories are (**N.B.** location of all these repositories will change):
+
 * wiki-server [paul90/wiki - paul90/refactor branch](https://github.com/paul90/wiki/tree/paul90/refactor)
 * wiki-client [paul90/wiki-client - paul90/refactor branch](https://github.com/paul90/wiki-client/tree/paul90/refactor)
 * wiki-plugin-activity [paul90/wiki-plugin-activity](https://github.com/paul90/wiki-plugin-activity)
