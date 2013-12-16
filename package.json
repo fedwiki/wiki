@@ -1,6 +1,6 @@
 {
   "name": "wiki-exp",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "bin": {
     "wiki-exp": "./bin/server.js"
   },
