@@ -28,9 +28,6 @@ The quickest way to set up wiki on your local machine is to install it globally 
     $ npm install -g wiki-exp
     $ wiki-exp
 
-<span style="padding-left: 1em; border-left: 1em solid rgb(224,216,216); background-color: rbg(192,192,192);">:warning: The default location used to store your pages *should not* be used for more than testing. Any content you create will be lost when you update the package, or run ```npm update -g```. See Datastore options, below, on how to specify an alternative location.
-</span>
-
 Visit localhost:3000 to see your wiki. If you choose a host visible to the internet then others in the federation can use your work.
 
 ## Server Options
@@ -48,6 +45,10 @@ The server will then try to guess all unspecified options.
 ### Datastore options
 
 A number of datastores are supported. Use the --database and --data options to configure, or use the config.json.
+
+The default location of the datastore is ```~/.wiki```, which contains two sub-directories ```pages``` and ```status```:
+* ```pages``` is used with flatfiles, or leveldb, to store your pages, and
+* ```status``` stores the site's favicon, and a file containing the identity (email address) of the site owner.
 
 #### flatfiles (default)
 
@@ -91,6 +92,7 @@ The current repositories are (**N.B.** location of all these repositories will c
 * wiki-server [paul90/wiki - paul90/refactor branch](https://github.com/paul90/wiki/tree/paul90/refactor)
 * wiki-client [paul90/wiki-client - paul90/refactor branch](https://github.com/paul90/wiki-client/tree/paul90/refactor)
 * wiki-plugin-activity [paul90/wiki-plugin-activity](https://github.com/paul90/wiki-plugin-activity)
+* wiki-plugin-bars [fedwiki/wiki-plugin-bars](https://github/fedwiki/wiki-plugin-bars)
 * wiki-plugin-bytebeat [paul90/wiki-plugin-bytebeat](https://github.com/paul90/wiki-plugin-bytebeat)
 * wiki-plugin-calculator [paul90/wiki-plugin-calculator](https://github.com/paul90/wiki-plugin-calculator)
 * wiki-plugin-calendar [paul90/wiki-plugin-calendar](https://github.com/paul90/wiki-plugin-calendar)
@@ -130,7 +132,7 @@ If, for example, you were working on the ```method``` plug-in, you would do some
 
 	$ git clone https://github.com/paul90/wiki-exp.git
 	$ git clone https://github.com/paul90/wiki-plugin-method.git
-	$ cd wiki
+	$ cd wiki-exp
 	$ npm install
 	$ cd ../wiki-plugin-method
 	$ npm install

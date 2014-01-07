@@ -17,6 +17,7 @@
     "wiki-server": "git://github.com/paul90/wiki#paul90/refactor",
     "wiki-client": "git://github.com/paul90/wiki-client#paul90/refactor",
     "wiki-plugin-activity": "0.1",
+    "wiki-plugin-bars": "0.1",
     "wiki-plugin-bytebeat": "0.1",
     "wiki-plugin-calculator": "0.1",
     "wiki-plugin-calendar": "0.1",
