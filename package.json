@@ -1,5 +1,5 @@
 {
-  "name": "wiki-exp",
+  "name": "wiki",
   "version": "0.1.1",
   "bin": {
     "wiki-exp": "./bin/server.js"
@@ -14,8 +14,8 @@
   "dependencies": {
     "coffee-script": "*",
     "coffee-trace": "~1.4.0",
-    "wiki-server": "git://github.com/paul90/wiki#paul90/refactor",
-    "wiki-client": "git://github.com/paul90/wiki-client#paul90/refactor",
+    "wiki-server": "0.1",
+    "wiki-client": "0.1",
     "wiki-plugin-activity": "0.1",
     "wiki-plugin-bars": "0.1",
     "wiki-plugin-bytebeat": "0.1",
@@ -58,10 +58,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/paul90/wiki-exp.git"
+    "url": "https://github.com/fedwiki/wiki-node.git"
   },
   "bugs": {
-    "url": "https://github.com/paul90/wiki-exp/issues"
+    "url": "https://github.com/fedwiki/wiki-node/issues"
   },
   "engines": {
     "node": "0.10"
