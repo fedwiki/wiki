@@ -4,7 +4,7 @@
   "bin": {
     "wiki-exp": "./bin/server.js"
   },
-  "description": "Experimental refactor of Federated Wiki",
+  "description": "Federated Wiki",
   "author": {
     "name": "Paul Rodwell",
     "email": "paul.rodwell@btinternet.com",
