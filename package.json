@@ -2,7 +2,7 @@
   "name": "wiki",
   "version": "0.1.3",
   "bin": {
-    "wiki-exp": "./bin/server.js"
+    "wiki": "./bin/server.js"
   },
   "description": "Federated Wiki",
   "author": {
