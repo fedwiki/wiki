@@ -40,10 +40,10 @@ On the GitHub site, create a fork of the repositories you are going to work on, 
 	$ npm install
 	$ cd ../wiki-plugin-method
 	$ npm install
-  ...
-  ... Create a branch for your changes (git checkout -b my-new-feature)
-  ...
-  $ grunt watch
+	...
+	... Create a branch for your changes (git checkout -b my-new-feature)
+	...
+	$ grunt watch
 	...
 	... modify the method package as required
 	...
@@ -55,10 +55,10 @@ Cycle though making changes, installing them into wiki-node, and testing, until 
   
 If we were using ```npm link``` we would run:
 
-  $ cd wiki-plugin-method
-  $ npm link
-  $ cd ../wiki-node
-  $ npm link wiki-plugin-method
+	$ cd wiki-plugin-method
+	$ npm link
+	$ cd ../wiki-node
+	$ npm link wiki-plugin-method
   
 which would create the pair of symbolic links. N.B. on some platforms you will need admin rights to do this.
 
