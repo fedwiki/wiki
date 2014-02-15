@@ -1,19 +1,15 @@
 # Contributing
 
-The wiki consists of a number of GitHub repositories / packages, that contain the server, client and plugins. You will need to get the code for this repository together with that for the other components you wish to work on, using the standard fork/clone GitHub practices (see, [Fork a Repo](https://help.github.com/articles/fork-a-repo), you don't have to the command line to do this).
+The wiki consists of a number of GitHub repositories and corresponding npm packages that contain the server, client and various plugins. You will need to get the code for this repository together with that for the other components you wish to work on, using the standard fork/clone GitHub practices (see, [Fork a Repo](https://help.github.com/articles/fork-a-repo), you don't have to the command line to do this).
 
 The repositories are:
 
-<dl>
-<dt>[fedwiki/wiki-node](https://github.com/fedwiki/wiki-node) - *this repository*</dt>
-<dd>The **wiki** package - provides a container to install the individual parts of the wiki, and to start the server.</dd>
-<dt>[fedwiki/wiki-node-server](https://github.com/fedwiki/wiki-node-server)</dt>
-<dd>The **wiki-server** package - the node.js wiki server code.</dd>
-<dt>[fedwiki/wiki-client](https://github.com/fedwiki/wiki-client)</dt>
-<dd>The **wiki-client** package - the javascript client code, shared with the ruby server implementation</dd>
-<dt>[fedwiki/wiki-plugin-*](https://github.com/search?q=%40fedwiki+plugin&type=Repositories&ref=searchresults)</dt>
-<dd>The [About Plugins](http://plugins.fed.wiki.org/about-plugins.html) wiki contains more details about the available plug-ins, and about their development.</dd>
-</dl>
+* [wiki-node](https://github.com/fedwiki/wiki-node) (this repository) -- The **wiki** npm package - a container that installs the individual parts of wiki and starts the server.
+* [wiki-node-server](https://github.com/fedwiki/wiki-node-server) -- The **wiki-server** npm package - the node.js wiki server code.
+* [wiki-client](https://github.com/fedwiki/wiki-client) -- The **wiki-client** npm package - the javascript client code, shared with the ruby server implementation
+* [wiki-plugin-*](https://github.com/search?q=%40fedwiki+plugin&type=Repositories&ref=searchresults) -- The many **wiki-plugin** npm packages - dynamically loaded client-side markup extensions.
+
+See [About Plugins](http://plugins.fed.wiki.org/about-plugins.html) for more details about how plug-ins work and about how we develop them.
 
 ## Do's and Don't
 
