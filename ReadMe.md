@@ -28,6 +28,22 @@ The quickest way to set up wiki on your local machine is to install it globally 
 
 Visit localhost:3000 to see your wiki. If you choose a host visible to the internet then others in the federation can use your work.
 
+## Updating the Server Software
+
+From time to time some of the packages that makeup the wiki software will be updated. To see if updates are available for any of the wiki packages, run:
+
+    $ npm outdated --silent -g | grep '^Package\|^wiki'
+
+If there are any updates available, the globally installed wiki can be updated by re-installing it:
+
+    $ npm install -g wiki
+
+We have to install as running `npm update -g wiki` will only work if the wiki package itself has been updated.
+
+An alternative approach would be to run `npm update` in the directory containing the wiki install. The location for running this will vary depending on which platform you are on.
+
+If you installed the wiki package locally, rather than globally, you can run `npm outdated --silent | grep '^Package\|^wiki'` and `npm update` in the directory you installed the wiki package.
+
 ## Server Options
 
 Options for the server can be passed in many ways:
