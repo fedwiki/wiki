@@ -1,6 +1,6 @@
 {
   "name": "wiki",
-  "version": "0.1.8",
+  "version": "0.2.0",
   "bin": {
     "wiki": "./bin/server.js"
   },
@@ -15,14 +15,14 @@
     "coffee-script": "1.6.3",
     "coffee-trace": "~1.4.0",
     "wiki-server": "0.1",
-    "wiki-client": "0.1",
+    "wiki-client": "0.2",
     "wiki-plugin-activity": "0.1",
     "wiki-plugin-bars": "0.1",
     "wiki-plugin-bytebeat": "0.1",
     "wiki-plugin-calculator": "0.1",
     "wiki-plugin-calendar": "0.1",
     "wiki-plugin-changes": "0.1",
-    "wiki-plugin-chart": "0.1",
+    "wiki-plugin-chart": "0.2",
     "wiki-plugin-code": "0.1",
     "wiki-plugin-data": "0.1",
     "wiki-plugin-efficiency": "0.1",
