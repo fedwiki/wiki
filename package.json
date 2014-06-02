@@ -1,9 +1,7 @@
 {
   "name": "wiki",
   "version": "0.2.0",
-  "bin": {
-    "wiki": "./bin/server.js"
-  },
+  "bin": "./index.js",
   "description": "Federated Wiki",
   "author": {
     "name": "Paul Rodwell",
@@ -12,8 +10,12 @@
   },
   "license": "MIT",
   "dependencies": {
+    "bouncy": "3.2",
     "coffee-script": "1.6.3",
     "coffee-trace": "~1.4.0",
+    "config-chain": "1.1",
+    "glob": "4.0",
+    "optimist": "0.6",
     "wiki-server": "0.1",
     "wiki-client": "0.2",
     "wiki-plugin-activity": "0.1",
@@ -54,7 +56,7 @@
   },
   "devDependencies": {},
   "scripts": {
-    "start": "node bin/server.js"
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
