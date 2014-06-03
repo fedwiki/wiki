@@ -1,6 +1,3 @@
-**WARNING** Versions 0.3.x should not be install globally - they fail to configure the plugin
-location correctly.
-
 # Federated Wiki (Node.js server version)
 
 > The original wiki was written in a week and cloned within a week after that.
