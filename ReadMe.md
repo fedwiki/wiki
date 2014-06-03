@@ -1,4 +1,4 @@
-**WARNING** Versions 0.3.0 and 0.3.1 should not be install globally - they fail to configure the plugin
+**WARNING** Versions 0.3.x should not be install globally - they fail to configure the plugin
 location correctly.
 
 # Federated Wiki (Node.js server version)
