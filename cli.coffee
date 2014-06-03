@@ -83,7 +83,7 @@ config = cc(argv,
     root: path.dirname(require.resolve('wiki-server'))
     home: 'welcome-visitors'
     data: path.join(getUserHome(), '.wiki') # see also defaultargs
-    packageDir: path.resolve('./node_modules')
+    packageDir: path.resolve(path.join(__dirname, 'node_modules'))
 ).store
 
 # If h/help is set print the generated help message and exit.
