@@ -1,3 +1,6 @@
+**WARNING** Versions 0.3.0 and 0.3.1 should not be install globally - they fail to configure the plugin
+location correctly.
+
 # Federated Wiki (Node.js server version)
 
 > The original wiki was written in a week and cloned within a week after that.
@@ -11,7 +14,7 @@ In this latest version of the node version of Federated Wiki, we continue by:
 * including all the client components in the wiki-client, and
 * moving all plug-ins into their own repositories, see below for a list.
 
-When we originally extracted the wiki-client, we included it back into wiki whilst building the wiki package. This had the unforeseen consequence that when creating an updated wiki-client it was also necessary to create a new version of the wiki package for the updated client to be available. To avoid this we no longer include wiki packages in the package for the server. 
+When we originally extracted the wiki-client, we included it back into wiki whilst building the wiki package. This had the unforeseen consequence that when creating an updated wiki-client it was also necessary to create a new version of the wiki package for the updated client to be available. To avoid this we no longer include wiki packages in the package for the server.
 
 Here we have a new wiki repository, and package, which only exist to pull together the federated wiki modules (wiki-node-server, wiki-client, and plug-ins) and start the server.
 
@@ -54,7 +57,7 @@ Options for the server can be passed in many ways:
 * As env vars prefixed with `wiki_`
 
 Higher in the list takes precedence.
-The server will then try to guess all unspecified options. 
+The server will then try to guess all unspecified options.
 
 ### Datastore options
 
@@ -126,4 +129,3 @@ The [contributing page](./contributing.md) provides details of the repositories 
 You may use the Wiki under either the
 [MIT License](https://github.com/WardCunningham/wiki/blob/master/mit-license.txt) or the
 [GNU General Public License](https://github.com/WardCunningham/wiki/blob/master/gpl-license.txt) (GPL) Version 2.
-
