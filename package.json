@@ -33,6 +33,7 @@
     "wiki-plugin-federatedwiki": "0.1",
     "wiki-plugin-force": "0.1",
     "wiki-plugin-future": "0.1",
+    "wiki-plugin-html": "*",
     "wiki-plugin-image": "0.1",
     "wiki-plugin-line": "0.1",
     "wiki-plugin-linkmap": "0.1",
@@ -52,7 +53,8 @@
     "wiki-plugin-rollup": "0.1",
     "wiki-plugin-scatter": "0.1",
     "wiki-plugin-twadio": "0.1",
-    "wiki-plugin-txtzyme": "0.1"
+    "wiki-plugin-txtzyme": "0.1",
+    "wiki-plugin-video": "*"
   },
   "devDependencies": {},
   "scripts": {
