@@ -11,7 +11,7 @@
   "license": "MIT",
   "dependencies": {
     "bouncy": "3.2",
-    "coffee-script": "1.6.3",
+    "coffee-script": "1.8",
     "coffee-trace": "~1.4.0",
     "config-chain": "1.1",
     "glob": "4.0",
