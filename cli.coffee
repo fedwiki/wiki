@@ -54,6 +54,9 @@ argv = optimist
   .options('database',
     describe  : 'JSON object for database config'
   )
+  .options('neighbors',
+    describe  : 'comma separated list of neighbor sites to seed'
+  )
   .options('test',
     boolean   : true
     describe  : 'Set server to work with the rspec integration tests'

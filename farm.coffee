@@ -57,6 +57,12 @@ module.exports = exports = (argv) ->
       # once it's ready send the request to it.
       local = server(newargv)
       runningServers.push(local)
+
+      # patch in new neighbors
+      neighbors = ((argv.neighbors + ',') or '') + Object.keys(hosts).join(',')
+      runningServers.forEach (server) ->
+        server.startOpts.neighbors = neighbors
+
       local.once "listening", ->
         bounce(argv.host, hosts[incHost])
   ).listen(argv.port, argv.host)
