@@ -59,9 +59,12 @@ module.exports = exports = (argv) ->
       runningServers.push(local)
 
       # patch in new neighbors
-      neighbors = ((argv.neighbors + ',') or '') + Object.keys(hosts).join(',')
-      runningServers.forEach (server) ->
-        server.startOpts.neighbors = neighbors
+      if argv.autoseed
+
+        neighbors = if argv.neighbors then argv.neighbors + ',' else ''
+        neighbors += Object.keys(hosts).join(',')
+        runningServers.forEach (server) ->
+          server.startOpts.neighbors = neighbors
 
       local.once "listening", ->
         bounce(argv.host, hosts[incHost])
