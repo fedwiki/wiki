@@ -57,6 +57,10 @@ argv = optimist
   .options('neighbors',
     describe  : 'comma separated list of neighbor sites to seed'
   )
+  .options('autoseed',
+    describe  : 'Seed all sites in a farm to each other site in the farm.'
+    boolean   : true
+  )
   .options('test',
     boolean   : true
     describe  : 'Set server to work with the rspec integration tests'
