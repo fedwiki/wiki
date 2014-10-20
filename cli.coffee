@@ -54,6 +54,9 @@ argv = optimist
   .options('database',
     describe  : 'JSON object for database config'
   )
+  .options('sizeLimit',
+    describe  : 'Set the upload size limit'
+  )
   .options('test',
     boolean   : true
     describe  : 'Set server to work with the rspec integration tests'
