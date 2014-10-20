@@ -54,6 +54,13 @@ argv = optimist
   .options('database',
     describe  : 'JSON object for database config'
   )
+  .options('neighbors',
+    describe  : 'comma separated list of neighbor sites to seed'
+  )
+  .options('autoseed',
+    describe  : 'Seed all sites in a farm to each other site in the farm.'
+    boolean   : true
+  )
   .options('sizeLimit',
     describe  : 'Set the upload size limit'
   )
