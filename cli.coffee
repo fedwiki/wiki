@@ -61,8 +61,8 @@ argv = optimist
     describe  : 'Seed all sites in a farm to each other site in the farm.'
     boolean   : true
   )
-  .options('sizeLimit',
-    describe  : 'Set the upload size limit'
+  .options('uploadLimit',
+    describe  : 'Set the upload size limit, limits the size page content items, and pages that can be forked'
   )
   .options('test',
     boolean   : true
