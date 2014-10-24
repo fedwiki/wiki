@@ -56,7 +56,24 @@ Options for the server can be passed in many ways:
 Higher in the list takes precedence.
 The server will then try to guess all unspecified options.
 
+### Neighborhood Seeding
+
+Two options are added for seeding a neighborhood.
+
+When running a server farm `--autoseed` will populate the neighborhood with the other sites in the farm that have been
+visited.
+
+Adding `--neighbours 'comma separated list of sites'` will add those sites to the neighborhood.
+
 ### Datastore options
+
+---
+
+**NOTE:** This release sees a change in how the support for different
+datastores is provided, and how they are configured. The previous
+configuration method is *depreciated*, and will be removed in a future version.
+
+---
 
 A number of datastores are supported. Use the --database and --data options to configure, or use the config.json.
 
@@ -72,9 +89,12 @@ The default path to store page data is in a "default-data" subdirectory of the i
 
 #### mongodb
 
+Support for mongoDB is added by installing the `wiki-storage-mongodb` package, this can be
+achieved by running `npm install wiki-storage-mongodb -save` in this directory.
+
 The mongodb connection arguments are specified as follows:
 
-    $ wiki --database '{"type": "./mongodb", "url": "...", "options": {...}}'
+    $ wiki --database '{"type": "mongodb", "url": "...", "options": {...}}'
 
 For convenience the url will also be read from MONGO_URI, MONGOLAB_URI, or MONGOHQ_URL. This smooths the Heroku deployment process somewhat.
 
@@ -82,17 +102,23 @@ The mongodb datastore allows for a graceful upgrade path. If a page is not found
 
 #### redis
 
+Support for redis is added by installing the `wiki-storage-redis` package, this can be
+achieved by running `npm install wiki-storage-redis -save` in this directory.
+
 The Redis connection arguments are specified as follows:
 
-    $ wiki --database '{"type": "./redis", "host": "...", "port": nnn, "options": {...}}'
+    $ wiki --database '{"type": "redis", "host": "...", "port": nnn, "options": {...}}'
 
 The Redis datastore allows for a graceful upgrade path. If a page is not found in redis the flatfile datastore will be consulted.
 
 #### leveldb
 
+Support for leveldb is added by installing the `wiki-storage-leveldb` package, this can be
+achieved by running `npm install wiki-storage-leveldb -save` in this directory.
+
 The leveldb datastore uses JSON encoded leveldb format and is configured by providing a filesystem path:
 
-    $ wiki --database '{"type": "./leveldb"}' --data FILESYSTEM_PATH
+    $ wiki --database '{"type": "leveldb"}' --data FILESYSTEM_PATH
 
 The leveldb datastore allows for a graceful upgrade path. If a page is not found in leveldb the flatfile datastore will be consulted.
 
@@ -101,7 +127,7 @@ The leveldb datastore allows for a graceful upgrade path. If a page is not found
 ```
 {
   "database" : {
-    "type" : "./redis",
+    "type" : "redis",
     "host" : "your.redis_instance.com",
     "port" : 6379,
     "options": { "auth_pass" : "all_mimsy_were_the_borogroves" }
