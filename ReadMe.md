@@ -56,6 +56,15 @@ Options for the server can be passed in many ways:
 Higher in the list takes precedence.
 The server will then try to guess all unspecified options.
 
+### Neighborhood Seeding
+
+Two options are added for seeding a neighborhood.
+
+When running a server farm `--autoseed` will populate the neighborhood with the other sites in the farm that have been
+visited.
+
+Adding `--neighbours 'comma separated list of sites'` will add those sites to the neighborhood.
+
 ### Datastore options
 
 ---
