@@ -37,10 +37,6 @@ argv = optimist
     alias     : 'f'
     describe  : 'Turn on the farm?'
   )
-  .options('farmPort',
-    alias     : 'F'
-    describe  : 'Port to start farm servers on.'
-  )
   .options('home',
     describe  : 'The page to go to instead of index.html'
   )
@@ -88,7 +84,6 @@ config = cc(argv,
   'config.json',
   path.join(__dirname, '..', 'config.json'),
   cc.env('wiki_'),
-    farmPort: 40000
     port: 3000
     root: path.dirname(require.resolve('wiki-server'))
     home: 'welcome-visitors'
@@ -117,4 +112,9 @@ else if config.farm
   console.log('Wiki starting in Farm mode, navigate to a specific server to start it.')
   farm(config)
 else
-  server(config)
+  app = server(config)
+  app.on 'owner-set', (e) ->
+    serv = app.listen app.startOpts.port, app.startOpts.host
+    console.log "Smallest Federated Wiki server listening on", app.startOpts.port, "in mode:", app.settings.env
+    app.emit 'running-serv', serv
+
