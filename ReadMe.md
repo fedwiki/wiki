@@ -87,7 +87,28 @@ The default path to store page data is in a "default-data" subdirectory of the i
 
     $ wiki --data FILESYSTEM_PATH
 
-#### mongodb
+#### leveldb
+
+Support for leveldb is added by installing the `wiki-storage-leveldb` package, this can be
+achieved by running `npm install wiki-storage-leveldb -save` in this directory.
+
+The leveldb datastore uses JSON encoded leveldb format and is configured by providing a filesystem path:
+
+    $ wiki --database '{"type": "leveldb"}' --data FILESYSTEM_PATH
+
+The leveldb datastore allows for a graceful upgrade path. If a page is not found in leveldb the flatfile datastore will be consulted.
+
+
+#### Database Datastores
+
+---
+
+**NOTE:** Database datastore will NOT work when the server is run in farm mode.
+
+---
+
+
+##### mongodb
 
 Support for mongoDB is added by installing the `wiki-storage-mongodb` package, this can be
 achieved by running `npm install wiki-storage-mongodb -save` in this directory.
@@ -100,7 +121,7 @@ For convenience the url will also be read from MONGO_URI, MONGOLAB_URI, or MONGO
 
 The mongodb datastore allows for a graceful upgrade path. If a page is not found in mongodb the flatfile datastore will be consulted.
 
-#### redis
+##### redis
 
 Support for redis is added by installing the `wiki-storage-redis` package, this can be
 achieved by running `npm install wiki-storage-redis -save` in this directory.
@@ -111,16 +132,7 @@ The Redis connection arguments are specified as follows:
 
 The Redis datastore allows for a graceful upgrade path. If a page is not found in redis the flatfile datastore will be consulted.
 
-#### leveldb
 
-Support for leveldb is added by installing the `wiki-storage-leveldb` package, this can be
-achieved by running `npm install wiki-storage-leveldb -save` in this directory.
-
-The leveldb datastore uses JSON encoded leveldb format and is configured by providing a filesystem path:
-
-    $ wiki --database '{"type": "leveldb"}' --data FILESYSTEM_PATH
-
-The leveldb datastore allows for a graceful upgrade path. If a page is not found in leveldb the flatfile datastore will be consulted.
 
 ##### Example config.json for Redis
 
