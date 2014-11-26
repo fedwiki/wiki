@@ -56,7 +56,10 @@
     "wiki-plugin-txtzyme": "0.1",
     "wiki-plugin-video": "*"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "wiki-storage-couchdb": "0.0.1",
+    "wiki-storage-redis": "0.0.2"    
+  },
   "scripts": {
     "start": "node index.js"
   },

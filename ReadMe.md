@@ -147,6 +147,22 @@ The Redis datastore allows for a graceful upgrade path. If a page is not found i
 }
 ```
 
+### Run Wiki in Docker containers with different storage backends
+
+[Fig](http://www.fig.sh/install.html) allows to easily spin up docker containers with multiple wiki apps, couchdb and redis storage.
+It is configured through `fig.yml`. By uncommenting the redis and or couchdb paragraghs in `fig.yml` more containers can be started.
+
+     $ fig up
+
+If you are not installing the wiki components locally you will need to build the app container by running:
+
+     $ fig build
+     $ fig run web npm install
+     $ fig up
+
+Visit $dockerhost:3000 to see your wiki.
+On OsX $dockerhost can be determined by running: `boot2docker ip` . On Linux the containers bind to 0.0.0.0
+The wiki-node source directory gets mounted into the app containers under /usr/src/app
 
 
 ## Participation
