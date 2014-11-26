@@ -14,32 +14,44 @@ web:
 
 ## uncomment to start additional container with differen storage backend
 #
+## redis
+#
+# install the redis storage module by running
+#
+#     $ fig run web npm install wiki-storage-redis --save
+#
 #webredis:
 #  build: .
 #  command: "node index.js --autoseed --database '{\"type\":\"redis\",\"host\":\"redis\"}'"
 #  ports:
 #   - "3001:3001"
 #  volumes:
-#   - .:/usr/src/app    
+#   - .:/usr/src/app
 #  environment:
 #   - wiki_port=3001
 #  links:
 #   - redis
 
 #redis:
-#  image: redis 
+#  image: redis
 
+## couchdb
+#
+# install the couchdb storage module by running
+#
+#     $ fig run web npm install wiki-storage-couchdb --save
+#
 #webcouch:
 #  build: .
 #  command: "node index.js --autoseed --database '{\"type\":\"couchdb\",\"host\":\"couchdb\"}'"
 #  ports:
 #   - "3002:3002"
 #  volumes:
-#   - .:/usr/src/app    
+#   - .:/usr/src/app
 #  environment:
 #   - wiki_port=3002
 #  links:
 #   - couchdb
 
 #couchdb:
-#  image: klaemo/couchdb 
+#  image: klaemo/couchdb
