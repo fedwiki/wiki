@@ -8,6 +8,18 @@
     "email": "paul.rodwell@btinternet.com",
     "url": "http://wiki-paul90.rhcloud.com"
   },
+  "contributors": [
+    {
+      "name": "Nick Niemeir",
+      "email": "nick.niemeir@gmail.com",
+      "url": "http://nrn.io"
+    },
+    {
+      "name": "Ward Cunningham",
+      "email": "ward@c2.com",
+      "url": "http://ward.fed.wiki.org"
+    }
+  ],
   "license": "MIT",
   "dependencies": {
     "bouncy": "3.2",
@@ -16,7 +28,7 @@
     "config-chain": "1.1",
     "glob": "4.0",
     "optimist": "0.6",
-    "wiki-server": "0.3",
+    "wiki-server": "0.4",
     "wiki-client": "0.3",
     "wiki-plugin-activity": "0.1",
     "wiki-plugin-bars": "0.1",
