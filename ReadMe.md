@@ -164,6 +164,9 @@ Visit $dockerhost:3000 to see your wiki.
 On OsX $dockerhost can be determined by running: `boot2docker ip` . On Linux the containers bind to 0.0.0.0
 The wiki-node source directory gets mounted into the app containers under /usr/src/app
 
+## Problems and incompatibilities
+
+* **Firefox with Multifox**: The federated wiki does not work with Multifox profiles but the default one.
 
 ## Participation
 
