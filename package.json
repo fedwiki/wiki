@@ -1,6 +1,6 @@
 {
   "name": "wiki",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "bin": "./index.js",
   "description": "Federated Wiki",
   "author": {
