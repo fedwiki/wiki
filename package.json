@@ -28,7 +28,7 @@
     "glob": "4.3",
     "optimist": "0.6",
     "wiki-server": "0.4",
-    "wiki-client": "0.3",
+    "wiki-client": "0.4",
     "wiki-plugin-activity": "0.2",
     "wiki-plugin-bars": "0.2",
     "wiki-plugin-bytebeat": "0.2",
