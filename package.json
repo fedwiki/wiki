@@ -50,6 +50,7 @@
     "wiki-plugin-linkmap": "0.1",
     "wiki-plugin-logwatch": "0.1",
     "wiki-plugin-map": "0.1",
+    "wiki-plugin-markdown": "0.1",
     "wiki-plugin-mathjax": "0.1",
     "wiki-plugin-metabolism": "0.1",
     "wiki-plugin-method": "0.1",
