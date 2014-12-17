@@ -27,7 +27,9 @@ module.exports = exports = (argv) ->
     if req.headers?.host
       incHost = req.headers.host
     else
-      return res.status(400).send('Missing host header')
+      res.statusCode = 400
+      res.end('Missing host header')
+      return
 
     # If the host starts with "www." treat it the same as if it didn't
     if incHost[0..3] is "www."
