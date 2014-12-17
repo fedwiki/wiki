@@ -14,6 +14,14 @@ module.exports = exports = (argv) ->
   # Keep an array of servers that are currently active
   runningServers = []
 
+  if argv.allowed
+    allowed = argv.allowed.split(',')
+    allow = (host) ->
+      host.split(':')[0] in allowed
+  else
+    allow = () -> true
+
+
   farmServ = http.createServer (req, res) ->
 
     if req.headers?.host
@@ -24,6 +32,12 @@ module.exports = exports = (argv) ->
     # If the host starts with "www." treat it the same as if it didn't
     if incHost[0..3] is "www."
       incHost = incHost[4..]
+
+    unless allow(incHost)
+      res.statusCode = 400
+      res.end('Invalid host')
+      return
+
     # if we already have a port for this host, forward the request to it.
     if hosts[incHost]
       hosts[incHost](req, res)

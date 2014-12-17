@@ -57,6 +57,9 @@ argv = optimist
     describe  : 'Seed all sites in a farm to each other site in the farm.'
     boolean   : true
   )
+  .options('allowed',
+    describe  : 'comma separated list of allowed host names for farm mode.'
+  )
   .options('uploadLimit',
     describe  : 'Set the upload size limit, limits the size page content items, and pages that can be forked'
   )
