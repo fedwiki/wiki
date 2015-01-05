@@ -44,6 +44,7 @@
     "wiki-plugin-federatedwiki": "0.2",
     "wiki-plugin-force": "0.2",
     "wiki-plugin-future": "0.2",
+    "wiki-plugin-grep": "0.1",
     "wiki-plugin-html": "0.2",
     "wiki-plugin-image": "0.2",
     "wiki-plugin-line": "0.2",
