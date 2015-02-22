@@ -1,3 +1,11 @@
+###
+ * Federated Wiki : Node Server
+ *
+ * Copyright Ward Cunningham and other contributors
+ * Licensed under the MIT license.
+ * https://github.com/fedwiki/wiki-node/blob/master/LICENSE.txt
+###
+
 # **cli.coffee** command line interface for the
 # Smallest-Federated-Wiki express server
 
@@ -120,4 +128,3 @@ else
     serv = app.listen app.startOpts.port, app.startOpts.host
     console.log "Smallest Federated Wiki server listening on", app.startOpts.port, "in mode:", app.settings.env
     app.emit 'running-serv', serv
-
