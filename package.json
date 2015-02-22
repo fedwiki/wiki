@@ -74,7 +74,10 @@
     "wiki-plugin-txtzyme": "0.2",
     "wiki-plugin-video": "0.2"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "grunt": "~0.4",
+    "grunt-git-authors": "~2"
+  },
   "scripts": {
     "start": "node index.js"
   },

@@ -1,0 +1,6 @@
+Authors ordered by first contribution
+
+Nick Niemeir <nick.niemeir@gmail.com>
+Ward Cunningham <ward@c2.com>
+Paul Rodwell <paul.rodwell@btinternet.com>
+Leander <leander@wesrc.com>
