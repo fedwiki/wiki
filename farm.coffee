@@ -46,9 +46,16 @@ module.exports = exports = (argv) ->
     else
       # Create a new options object, copy over the options used to start the
       # farm, and modify them to make sense for servers spawned from the farm.
-      newargv = {}
-      for key, value of argv
-        newargv[key] = value
+
+      # do deep copy, needed for database configuration for instance
+      copy = (map) ->
+          clone  = {}
+          for key, value of map
+            clone[key] = if typeof value == "object" then copy(value) else value
+          clone
+
+      newargv = copy argv
+
       newargv.data = if argv.data
         path.join(argv.data, incHost.split(':')[0])
       else
