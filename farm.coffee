@@ -1,3 +1,11 @@
+###
+ * Federated Wiki : Node Server
+ *
+ * Copyright Ward Cunningham and other contributors
+ * Licensed under the MIT license.
+ * https://github.com/fedwiki/wiki-node/blob/master/LICENSE.txt
+###
+
 # **farm.coffee**
 # The farm module works by putting a bouncy host based proxy
 # in front of servers that it creates
