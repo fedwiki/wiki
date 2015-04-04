@@ -4,3 +4,4 @@ Nick Niemeir <nick.niemeir@gmail.com>
 Ward Cunningham <ward@c2.com>
 Paul Rodwell <paul.rodwell@btinternet.com>
 Leander <leander@wesrc.com>
+Thomas Kalka <thomas.kalka@co-buero.de>
