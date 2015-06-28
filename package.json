@@ -25,7 +25,7 @@
     "coffee-script": "1.9",
     "coffee-trace": "~1.4.0",
     "config-chain": "1.1",
-    "glob": "4.4",
+    "glob": "5.0",
     "optimist": "0.6",
     "wiki-server": "0.6",
     "wiki-client": "0.5",
