@@ -20,12 +20,7 @@
       "url": "http://ward.fed.wiki.org"
     }
   ],
-  "licenses": [
-    {
-      "type": "MIT",
-      "url": "https://github.com/fedwiki/wiki-node/blob/master/LICENSE.txt"
-    }
-  ],
+  "license": "MIT",
   "dependencies": {
     "coffee-script": "1.8",
     "coffee-trace": "~1.4.0",
@@ -79,7 +74,7 @@
   },
   "devDependencies": {
     "grunt": "~0.4",
-    "grunt-git-authors": "~2"
+    "grunt-git-authors": "~3"
   },
   "scripts": {
     "start": "node index.js"
@@ -92,6 +87,6 @@
     "url": "https://github.com/fedwiki/wiki-node/issues"
   },
   "engines": {
-    "node": "0.10"
+    "node": ">=0.10"
   }
 }
