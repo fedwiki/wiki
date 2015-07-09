@@ -20,23 +20,18 @@
       "url": "http://ward.fed.wiki.org"
     }
   ],
-  "licenses": [
-    {
-      "type": "MIT",
-      "url": "https://github.com/fedwiki/wiki-node/blob/master/LICENSE.txt"
-    }
-  ],
+  "license": "MIT",
   "dependencies": {
-    "coffee-script": "1.8",
+    "coffee-script": "1.9",
     "coffee-trace": "~1.4.0",
     "config-chain": "1.1",
-    "glob": "4.4",
+    "glob": "5.0",
     "optimist": "0.6",
-    "wiki-server": "0.5",
-    "wiki-client": "0.4",
+    "wiki-server": "0.6",
+    "wiki-client": "0.5",
     "wiki-plugin-activity": "0.2",
     "wiki-plugin-audio": "0.1",
-    "wiki-plugin-bars": "0.2",
+    "wiki-plugin-bars": "0.3",
     "wiki-plugin-bytebeat": "0.2",
     "wiki-plugin-calculator": "0.2",
     "wiki-plugin-calendar": "0.2",
@@ -49,12 +44,12 @@
     "wiki-plugin-favicon": "0.2",
     "wiki-plugin-federatedwiki": "0.2",
     "wiki-plugin-flagmatic": "0.1",
-    "wiki-plugin-force": "0.2",
+    "wiki-plugin-force": "0.3",
     "wiki-plugin-future": "0.2",
     "wiki-plugin-grep": "0.1",
     "wiki-plugin-html": "0.2",
     "wiki-plugin-image": "0.2",
-    "wiki-plugin-line": "0.2",
+    "wiki-plugin-line": "0.3",
     "wiki-plugin-linkmap": "0.2",
     "wiki-plugin-logwatch": "0.2",
     "wiki-plugin-map": "0.2",
@@ -65,21 +60,21 @@
     "wiki-plugin-pagefold": "0.2",
     "wiki-plugin-paragraph": "0.2",
     "wiki-plugin-parse": "0.2",
-    "wiki-plugin-pushpin": "0.2",
-    "wiki-plugin-radar": "0.2",
+    "wiki-plugin-pushpin": "0.3",
+    "wiki-plugin-radar": "0.3",
     "wiki-plugin-reduce": "0.2",
     "wiki-plugin-reference": "0.2",
     "wiki-plugin-report": "0.2",
     "wiki-plugin-rollup": "0.2",
     "wiki-plugin-roster": "0.1",
-    "wiki-plugin-scatter": "0.2",
+    "wiki-plugin-scatter": "0.3",
     "wiki-plugin-twadio": "0.2",
     "wiki-plugin-txtzyme": "0.2",
     "wiki-plugin-video": "0.2"
   },
   "devDependencies": {
     "grunt": "~0.4",
-    "grunt-git-authors": "~2"
+    "grunt-git-authors": "~3"
   },
   "scripts": {
     "start": "node index.js"
@@ -92,6 +87,6 @@
     "url": "https://github.com/fedwiki/wiki-node/issues"
   },
   "engines": {
-    "node": "0.10"
+    "node": ">=0.10"
   }
 }
