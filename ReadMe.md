@@ -1,5 +1,7 @@
 # Federated Wiki (Node.js server version)
 
+[![Join the chat at https://gitter.im/fedwiki/wiki-node](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/fedwiki/wiki-node?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 > The original wiki was written in a week and cloned within a week after that.
 > The concept was shown to be fruitful while leaving other implementers room to innovate.
 > When we ask for simple, we are looking for the same kind of simplicity: nothing to distract from our innovation in federation.
