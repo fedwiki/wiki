@@ -52,6 +52,9 @@ argv = optimist
     alias     : 'o'
     describe  : 'Host to accept connections on, falsy == any'
   )
+  .options('security',
+    describe  : 'JSON object for security config'
+  )
   .options('id',
     describe  : 'Set the location of the open id file'
   )
@@ -98,6 +101,7 @@ config = cc(argv,
     port: 3000
     root: path.dirname(require.resolve('wiki-server'))
     home: 'welcome-visitors'
+    security: 'persona'
     data: path.join(getUserHome(), '.wiki') # see also defaultargs
     packageDir: path.resolve(path.join(__dirname, 'node_modules'))
 ).store
