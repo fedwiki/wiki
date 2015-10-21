@@ -13,7 +13,7 @@ In this latest version of the node version of Federated Wiki, we continue by:
 
 When we originally extracted the wiki-client, we included it back into wiki whilst building the wiki package. This had the unforeseen consequence that when creating an updated wiki-client it was also necessary to create a new version of the wiki package for the updated client to be available. To avoid this we no longer include wiki packages in the package for the server.
 
-Here we have a new wiki repository, and package, which only exist to pull together the federated wiki modules (wiki-node-server, wiki-client, and plug-ins) and start the server.
+Here we have a new wiki repository, and package, which only exist to pull together the federated wiki modules (wiki-server, wiki-client, and plug-ins) and start the server.
 
 ## Using Federated Wiki
 
@@ -162,7 +162,7 @@ If you are not installing the wiki components locally you will need to build the
 
 Visit $dockerhost:3000 to see your wiki.
 On OsX $dockerhost can be determined by running: `boot2docker ip` . On Linux the containers bind to 0.0.0.0
-The wiki-node source directory gets mounted into the app containers under /usr/src/app
+The wiki source directory gets mounted into the app containers under /usr/src/app
 
 
 ## Participation

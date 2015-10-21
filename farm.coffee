@@ -3,7 +3,7 @@
  *
  * Copyright Ward Cunningham and other contributors
  * Licensed under the MIT license.
- * https://github.com/fedwiki/wiki-node/blob/master/LICENSE.txt
+ * https://github.com/fedwiki/wiki/blob/master/LICENSE.txt
 ###
 
 # **farm.coffee**

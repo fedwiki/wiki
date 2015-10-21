@@ -81,10 +81,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/fedwiki/wiki-node.git"
+    "url": "https://github.com/fedwiki/wiki.git"
   },
   "bugs": {
-    "url": "https://github.com/fedwiki/wiki-node/issues"
+    "url": "https://github.com/fedwiki/wiki/issues"
   },
   "engines": {
     "node": ">=0.10"
