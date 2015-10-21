@@ -4,8 +4,8 @@ The wiki consists of a number of GitHub repositories and corresponding npm packa
 
 The repositories are:
 
-* [wiki-node](https://github.com/fedwiki/wiki-node) (this repository) -- The **wiki** npm package - a container that installs the individual parts of wiki and starts the server.
-* [wiki-node-server](https://github.com/fedwiki/wiki-node-server) -- The **wiki-server** npm package - the node.js wiki server code.
+* [wiki](https://github.com/fedwiki/wiki) (this repository) -- The **wiki** npm package - a container that installs the individual parts of wiki and starts the server.
+* [wiki-server](https://github.com/fedwiki/wiki-server) -- The **wiki-server** npm package - the node.js wiki server code.
 * [wiki-client](https://github.com/fedwiki/wiki-client) -- The **wiki-client** npm package - the javascript client code, shared with the ruby server implementation
 * [wiki-plugin-*](https://github.com/search?q=%40fedwiki+plugin&type=Repositories&ref=searchresults) -- The many **wiki-plugin** npm packages - dynamically loaded client-side markup extensions.
 
@@ -18,7 +18,7 @@ See [About Plugins](http://plugins.fed.wiki.org/about-plugins.html) for more det
 
 ## Working on a component
 
-As the project is split into a number of repositories/npm packages, we need to be able to include the components we are working on into a local copy of the *wiki* package. npm provides two ways of achieving this, using ```npm link``` or ```npm install```. 
+As the project is split into a number of repositories/npm packages, we need to be able to include the components we are working on into a local copy of the *wiki* package. npm provides two ways of achieving this, using ```npm link``` or ```npm install```.
 
 ```npm link``` works by creating symbolic links. This is good in the early stages of development, as the changes you make to the component will be available as soon as they are rebuilt. Being symbolic links though, you get entire contents of the components repository and not just those you would get when you install the component. See [npm-link](https://npmjs.org/doc/cli/npm-link.html) man page.
 
@@ -30,9 +30,9 @@ If, for example, you were working on the ```method``` plug-in, you would do some
 
 On the GitHub site, create a fork of the repositories you are going to work on, and then:
 
-	$ git clone https://github.com/.../wiki-node.git
+	$ git clone https://github.com/.../wiki.git
 	$ git clone https://github.com/.../wiki-plugin-method.git
-	$ cd wiki-node
+	$ cd wiki
 	$ npm install
 	$ cd ../wiki-plugin-method
 	$ npm install
@@ -43,18 +43,17 @@ On the GitHub site, create a fork of the repositories you are going to work on, 
 	...
 	... modify the method package as required
 	...
-	$ cd ../wiki-node
+	$ cd ../wiki
 	$ npm install ../wiki-plugin-method
 	$ npm start
-  
-Cycle though making changes, installing them into wiki-node, and testing, until you are satisfied, then i) commit your changes (git commit -am 'Add some feature'), ii) push the branch up to GitHub (git push origin my-new-feature), and iii) create new Pull Request.
-  
+
+Cycle though making changes, installing them into wiki, and testing, until you are satisfied, then i) commit your changes (git commit -am 'Add some feature'), ii) push the branch up to GitHub (git push origin my-new-feature), and iii) create new Pull Request.
+
 If we were using ```npm link``` we would run:
 
 	$ cd wiki-plugin-method
 	$ npm link
-	$ cd ../wiki-node
+	$ cd ../wiki
 	$ npm link wiki-plugin-method
-  
-which would create the pair of symbolic links. N.B. on some platforms you will need admin rights to do this.
 
+which would create the pair of symbolic links. N.B. on some platforms you will need admin rights to do this.
