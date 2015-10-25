@@ -86,7 +86,7 @@ argv = optimist
   )
   .options('version',
     alias     : 'v'
-    describe  : 'Optional config file.'
+    describe  : 'Show version number and exit'
   )
   .argv
 
