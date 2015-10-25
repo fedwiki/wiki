@@ -91,7 +91,7 @@ argv = optimist
   )
   .options('version',
     alias     : 'v'
-    describe  : 'Show version number and exit'
+    describe  : 'Show version of wiki and wiki components, and exit'
   )
   .argv
 
@@ -113,11 +113,10 @@ if argv.help
 # If v/version is set print the version of the wiki components and exit.
 else if argv.version
   console.log('wiki: ' + require('./package').version)
-  console.log('wiki-server: ' + require('wiki-server/package').version)
-  console.log('wiki-client: ' + require('wiki-client/package').version)
-  glob 'wiki-plugin-*', {cwd: config.packageDir}, (e, plugins) ->
-    plugins.map (plugin) ->
-      console.log(plugin + ': ' + require(plugin + '/package').version)
+
+  # print version of each of the 'wiki' components
+  for c, v of wikiModules when c.indexOf('wiki') > -1
+    console.log(c + ': ' + require(c + '/package').version)
 
 else if argv.test
   console.log "WARNING: Server started in testing mode, other options ignored"
