@@ -18,8 +18,11 @@ glob = require 'glob'
 wikiModules = require('./package').dependencies
 
 # require server, even if it is a scoped module
-for c, v of wModules when c.indexOf('wiki-server') > -1
-  server = require c
+if 'wiki-server' in wikiModules
+  server = require 'wiki-server'
+else
+  for c, v of wikiModules when c.indexOf('wiki-server') > -1
+    server = require c
 
 farm = require './farm'
 
