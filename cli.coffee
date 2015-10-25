@@ -14,7 +14,12 @@ path = require 'path'
 optimist = require 'optimist'
 cc = require 'config-chain'
 glob = require 'glob'
-server = require 'wiki-server'
+
+wikiModules = require('./package').dependencies
+
+# require server, even if it is a scoped module
+for c, v of wModules when c.indexOf('wiki-server') > -1
+  server = require c
 
 farm = require './farm'
 
