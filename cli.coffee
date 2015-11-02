@@ -101,7 +101,7 @@ config = cc(argv,
     port: 3000
     root: path.dirname(require.resolve('wiki-server'))
     home: 'welcome-visitors'
-    security: 'persona'
+    security: '{"type": "persona"}'
     data: path.join(getUserHome(), '.wiki') # see also defaultargs
     packageDir: path.resolve(path.join(__dirname, 'node_modules'))
 ).store
