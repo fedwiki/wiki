@@ -1,7 +1,9 @@
 {
   "name": "wiki",
-  "version": "0.7.1",
-  "bin": { "wiki": "./index.js"},
+  "version": "0.8.0",
+  "bin": {
+    "wiki": "./index.js"
+  },
   "description": "Federated Wiki",
   "author": {
     "name": "Paul Rodwell",
