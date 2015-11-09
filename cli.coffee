@@ -56,7 +56,7 @@ argv = optimist
     describe  : 'JSON object for security config'
   )
   .options('id',
-    describe  : 'Set the location of the open id file'
+    describe  : 'Set the location of the Persona identity file'
   )
   .options('database',
     describe  : 'JSON object for database config'
