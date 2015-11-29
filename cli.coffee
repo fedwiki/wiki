@@ -114,6 +114,9 @@ else if argv.version
   console.log('wiki: ' + require('./package').version)
   console.log('wiki-server: ' + require('wiki-server/package').version)
   console.log('wiki-client: ' + require('wiki-client/package').version)
+  glob 'wiki-security-*', {cwd: config.packageDir}, (e, plugins) ->
+    plugins.map (plugin) ->
+      console.log(plugin + ": " + require(plugin + "/package").version)
   glob 'wiki-plugin-*', {cwd: config.packageDir}, (e, plugins) ->
     plugins.map (plugin) ->
       console.log(plugin + ': ' + require(plugin + '/package').version)
