@@ -52,8 +52,11 @@ argv = optimist
     alias     : 'o'
     describe  : 'Host to accept connections on, falsy == any'
   )
+  .options('security_type',
+    describe  : 'The security plugin to use, see documentation for additional parameters'
+  )
   .options('id',
-    describe  : 'Set the location of the open id file'
+    describe  : 'Set the location of the Persona identity file'
   )
   .options('database',
     describe  : 'JSON object for database config'
@@ -98,6 +101,7 @@ config = cc(argv,
     port: 3000
     root: path.dirname(require.resolve('wiki-server'))
     home: 'welcome-visitors'
+    security_type: 'persona'
     data: path.join(getUserHome(), '.wiki') # see also defaultargs
     packageDir: path.resolve(path.join(__dirname, 'node_modules'))
 ).store
@@ -110,6 +114,9 @@ else if argv.version
   console.log('wiki: ' + require('./package').version)
   console.log('wiki-server: ' + require('wiki-server/package').version)
   console.log('wiki-client: ' + require('wiki-client/package').version)
+  glob 'wiki-security-*', {cwd: config.packageDir}, (e, plugins) ->
+    plugins.map (plugin) ->
+      console.log(plugin + ": " + require(plugin + "/package").version)
   glob 'wiki-plugin-*', {cwd: config.packageDir}, (e, plugins) ->
     plugins.map (plugin) ->
       console.log(plugin + ': ' + require(plugin + '/package').version)
