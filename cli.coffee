@@ -133,5 +133,5 @@ else
   app = server(config)
   app.on 'owner-set', (e) ->
     serv = app.listen app.startOpts.port, app.startOpts.host
-    console.log "Smallest Federated Wiki server listening on", app.startOpts.port, "in mode:", app.settings.env
+    console.log "Federated Wiki server listening on", app.startOpts.port, "in mode:", app.settings.env
     app.emit 'running-serv', serv
