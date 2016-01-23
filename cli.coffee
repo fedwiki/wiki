@@ -45,6 +45,9 @@ argv = optimist
     alias     : 'f'
     describe  : 'Turn on the farm?'
   )
+  .options('admin',
+    describe  : 'Wiki server administrator identity'
+  )
   .options('home',
     describe  : 'The page to go to instead of index.html'
   )
