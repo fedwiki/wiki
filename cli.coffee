@@ -45,6 +45,9 @@ argv = optimist
     alias     : 'f'
     describe  : 'Turn on the farm?'
   )
+  .options('admin',
+    describe  : 'Wiki server administrator identity'
+  )
   .options('home',
     describe  : 'The page to go to instead of index.html'
   )
@@ -133,5 +136,5 @@ else
   app = server(config)
   app.on 'owner-set', (e) ->
     serv = app.listen app.startOpts.port, app.startOpts.host
-    console.log "Smallest Federated Wiki server listening on", app.startOpts.port, "in mode:", app.settings.env
+    console.log "Federated Wiki server listening on", app.startOpts.port, "in mode:", app.settings.env
     app.emit 'running-serv', serv

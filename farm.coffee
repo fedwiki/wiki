@@ -84,6 +84,7 @@ module.exports = exports = (argv) ->
           server.startOpts.neighbors = neighbors
 
       local.once "owner-set", ->
+        local.emit 'running-serv', farmServ
         hosts[incHost](req, res)
 
   runningFarmServ = farmServ.listen(argv.port, argv.host)
