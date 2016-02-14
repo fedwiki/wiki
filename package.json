@@ -73,11 +73,13 @@
     "wiki-plugin-video": "0.2"
   },
   "devDependencies": {
+    "electron-prebuilt": "^0.36.7",
     "grunt": "~0.4",
     "grunt-git-authors": "~3"
   },
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "electron-wiki": "electron electron-wiki.js"
   },
   "repository": {
     "type": "git",
