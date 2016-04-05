@@ -30,11 +30,9 @@
     "coffee-script": "1.10",
     "coffee-trace": "~1.4.0",
     "config-chain": "1.1",
-    "glob": "6.0",
+    "glob": "^7.0.3",
     "optimist": "0.6",
-    "wiki-server": "0.8",
-    "wiki-client": "0.7",
-    "wiki-security-persona": "0.1",
+    "wiki-client": "^0.8.0",
     "wiki-plugin-activity": "0.2",
     "wiki-plugin-audio": "0.1",
     "wiki-plugin-bars": "0.3",
@@ -72,12 +70,14 @@
     "wiki-plugin-roster": "0.1",
     "wiki-plugin-scatter": "0.3",
     "wiki-plugin-search": "0.0.8",
-    "wiki-plugin-transport": "0.0.5",
-    "wiki-plugin-video": "0.2"
+    "wiki-plugin-transport": "0.0.6",
+    "wiki-plugin-video": "0.2",
+    "wiki-security-passportjs": "^0.1.0",
+    "wiki-server": "^0.9.0"
   },
   "devDependencies": {
-    "grunt": "~0.4",
-    "grunt-git-authors": "~3"
+    "grunt": "^1.0.0",
+    "grunt-git-authors": "^3.1.1"
   },
   "scripts": {
     "start": "node index.js"
