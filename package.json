@@ -32,7 +32,7 @@
     "config-chain": "1.1",
     "glob": "^7.0.3",
     "optimist": "0.6",
-    "wiki-client": "^0.8.0",
+    "wiki-client": "next",
     "wiki-plugin-activity": "0.2",
     "wiki-plugin-audio": "0.1",
     "wiki-plugin-bars": "0.3",
@@ -72,8 +72,8 @@
     "wiki-plugin-search": "0.0.8",
     "wiki-plugin-transport": "0.0.6",
     "wiki-plugin-video": "0.2",
-    "wiki-security-passportjs": "^0.1.0",
-    "wiki-server": "^0.9.0"
+    "wiki-security-passportjs": "next",
+    "wiki-server": "next"
   },
   "devDependencies": {
     "grunt": "^1.0.0",
