@@ -32,6 +32,7 @@
     "config-chain": "1.1",
     "glob": "^7.0.3",
     "optimist": "0.6",
+    "lodash": "4",
     "wiki-client": "next",
     "wiki-plugin-activity": "0.2",
     "wiki-plugin-audio": "0.1",
@@ -76,8 +77,10 @@
     "wiki-server": "next"
   },
   "devDependencies": {
-    "grunt": "^1.0.0",
-    "grunt-git-authors": "^3.1.1"
+    "grunt": "^1.0.1",
+    "grunt-git-authors": "^3.2.0",
+    "grunt-nsp": "*",
+    "grunt-retire": "*"
   },
   "scripts": {
     "start": "node index.js"

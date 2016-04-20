@@ -1,4 +1,4 @@
-FROM node:0.10-slim
+FROM node:4-slim
 
 ADD . /usr/src/app
 WORKDIR /usr/src/app
