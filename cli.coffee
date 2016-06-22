@@ -59,7 +59,7 @@ argv = optimist
     describe  : 'The security plugin to use, see documentation for additional parameters'
   )
   .options('id',
-    describe  : 'Set the location of the Persona identity file'
+    describe  : 'Set the location of the owner identity file'
   )
   .options('database',
     describe  : 'JSON object for database config'
@@ -106,7 +106,8 @@ config = cc(argv,
     home: 'welcome-visitors'
     security_type: 'passportjs'
     data: path.join(getUserHome(), '.wiki') # see also defaultargs
-    packageDir: path.resolve(path.join(__dirname, 'node_modules'))
+    packageDir: path.resolve(path.join(__dirname, 'node_modules')
+    cookieSecret: require('crypto').randomBytes(64).toString('hex'))
 ).store
 
 # If h/help is set print the generated help message and exit.
