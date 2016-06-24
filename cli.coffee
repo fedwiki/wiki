@@ -106,8 +106,8 @@ config = cc(argv,
     home: 'welcome-visitors'
     security_type: 'passportjs'
     data: path.join(getUserHome(), '.wiki') # see also defaultargs
-    packageDir: path.resolve(path.join(__dirname, 'node_modules')
-    cookieSecret: require('crypto').randomBytes(64).toString('hex'))
+    packageDir: path.resolve(path.join(__dirname, 'node_modules'))
+    cookieSecret: require('crypto').randomBytes(64).toString('hex')
 ).store
 
 # If h/help is set print the generated help message and exit.
