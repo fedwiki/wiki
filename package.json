@@ -52,7 +52,7 @@
     "wiki-plugin-html": "0.2",
     "wiki-plugin-image": "0.2",
     "wiki-plugin-line": "0.3",
-    "wiki-plugin-map": "0.2",
+    "wiki-plugin-map": "0.3",
     "wiki-plugin-markdown": "0.2",
     "wiki-plugin-mathjax": "0.2",
     "wiki-plugin-metabolism": "0.2",
@@ -67,8 +67,8 @@
     "wiki-plugin-rollup": "0.2",
     "wiki-plugin-roster": "0.1",
     "wiki-plugin-scatter": "0.3",
-    "wiki-plugin-search": "0.0.9",
-    "wiki-plugin-transport": "0.0.8",
+    "wiki-plugin-search": "0.1",
+    "wiki-plugin-transport": "0.1",
     "wiki-plugin-video": "0.2"
   },
   "devDependencies": {
