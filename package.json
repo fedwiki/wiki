@@ -5,7 +5,8 @@
     "tag": "next"
   },
   "bin": {
-    "wiki": "./index.js"
+    "wiki": "./index.js",
+    "wiki-migrate": "node ./scripts/wiki-migrate.js"
   },
   "description": "Federated Wiki",
   "author": {
@@ -82,7 +83,8 @@
     "grunt-retire": "*"
   },
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "migrate": "node scripts/wiki-migrate.js"
   },
   "repository": {
     "type": "git",
