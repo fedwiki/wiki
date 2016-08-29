@@ -1,7 +1,7 @@
-# this is a fig configuration file http://www.fig.sh
-# http://www.fig.sh/install.html
+# this is a docker-compose configuration file
+# https://docs.docker.com/compose/
 #
-# run fig up
+# execute: docker-compose up -d
 
 web:
   build: .
@@ -21,7 +21,7 @@ web:
 #
 # install the redis storage module by running
 #
-#     $ fig run web npm install wiki-storage-redis --save
+#     $ docker-compose run web npm install wiki-storage-redis --save
 #
 #webredis:
 #  build: .
@@ -42,7 +42,7 @@ web:
 #
 # install the couchdb storage module by running
 #
-#     $ fig run web npm install wiki-storage-couchdb --save
+#     $ docker-compose run web npm install wiki-storage-couchdb --save
 #
 #webcouch:
 #  build: .
