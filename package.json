@@ -6,7 +6,7 @@
   },
   "bin": {
     "wiki": "./index.js",
-    "wiki-migrate": "node ./scripts/wiki-migrate.js"
+    "wiki-migrate": "./scripts/wiki-migrate.js"
   },
   "description": "Federated Wiki",
   "author": {
