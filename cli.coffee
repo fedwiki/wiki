@@ -104,7 +104,7 @@ config = cc(argv,
     port: 3000
     root: path.dirname(require.resolve('wiki-server'))
     home: 'welcome-visitors'
-    security_type: 'passportjs'
+    security_type: './security'
     data: path.join(getUserHome(), '.wiki') # see also defaultargs
     packageDir: path.resolve(path.join(__dirname, 'node_modules'))
     cookieSecret: require('crypto').randomBytes(64).toString('hex')

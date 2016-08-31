@@ -56,6 +56,15 @@ Options for the server can be passed in many ways:
 Higher in the list takes precedence.
 The server will then try to guess all unspecified options.
 
+### Configuring Security
+
+By default a *default* security module is configured. This makes the wiki read only.
+
+Details on how to configure the bundled [Passport](http://passportjs.org/) based
+security module, and the migration from using Mozilla Persona, see [security configuration](./security.md)
+
+**N.B.** The Mozilla Persona service closes on 30th November 2016.
+
 ### Neighborhood Seeding
 
 Two options are added for seeding a neighborhood.
