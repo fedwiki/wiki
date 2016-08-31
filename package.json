@@ -1,6 +1,6 @@
 {
   "name": "wiki",
-  "version": "0.10.0-7",
+  "version": "0.10.0-8",
   "publishConfig": {
     "tag": "next"
   },
