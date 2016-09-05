@@ -25,11 +25,13 @@ module.exports = exports = (argv) ->
   runningServers = []
 
   if argv.allowed
-    allowed = argv.allowed.split(',')
+    allowedHosts = argv.allowed.split(',')
     allowHost = (host) ->
-      host.split(':')[0] in allowed
-  else
-    allowHost = () -> true
+      hostDomain = host.split(':')[0]
+      if _.includes(allowedHosts, hostDomain)
+        return true
+      else
+        return false
 
   if argv.wikiDomains
     wikiDomains = _.keys(argv.wikiDomains)
@@ -49,7 +51,7 @@ module.exports = exports = (argv) ->
 
   allow = (host) ->
     # this requires some work, but...
-    if argv.allowd and allowHost(host)
+    if argv.allowed and allowHost(host)
       return true
     else
       if argv.wikiDomains and allowDomain(host)
