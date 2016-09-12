@@ -16,6 +16,8 @@ http = require 'http'
 
 server = require 'wiki-server'
 
+_ = require('lodash')
+
 module.exports = exports = (argv) ->
   # Map incoming hosts to their wiki's port
   hosts = {}
@@ -23,11 +25,40 @@ module.exports = exports = (argv) ->
   runningServers = []
 
   if argv.allowed
-    allowed = argv.allowed.split(',')
-    allow = (host) ->
-      host.split(':')[0] in allowed
+    allowedHosts = argv.allowed.split(',')
+    allowHost = (host) ->
+      hostDomain = host.split(':')[0]
+      if _.includes(allowedHosts, hostDomain)
+        return true
+      else
+        return false
+
+  if argv.wikiDomains
+    wikiDomains = _.keys(argv.wikiDomains)
+    inWikiDomain = ''
+    allowDomain = (host) ->
+      hostDomain = host.split(':')[0]
+      inWikiDomain = ''
+      _.each wikiDomains, (domain) ->
+        if _.endsWith hostDomain, domain
+          inWikiDomain = domain
+      if inWikiDomain
+        return true
+      else
+        return false
   else
-    allow = () -> true
+    allowDomain = () -> true
+
+  allow = (host) ->
+    # this requires some work, but...
+    if argv.allowed and allowHost(host)
+      return true
+    else
+      if argv.wikiDomains and allowDomain(host)
+        # host is within a defined wikiDomain
+        return true
+      else
+        return false
 
 
   farmServ = http.createServer (req, res) ->
@@ -43,15 +74,19 @@ module.exports = exports = (argv) ->
     if incHost[0..3] is "www."
       incHost = incHost[4..]
 
-    unless allow(incHost)
-      res.statusCode = 400
-      res.end('Invalid host')
-      return
 
     # if we already have a port for this host, forward the request to it.
     if hosts[incHost]
       hosts[incHost](req, res)
     else
+
+      # check that request is for an allowed host
+      unless allow(incHost)
+        res.statusCode = 400
+        res.end('Invalid host')
+        return
+
+
       # Create a new options object, copy over the options used to start the
       # farm, and modify them to make sense for servers spawned from the farm.
 
@@ -69,6 +104,12 @@ module.exports = exports = (argv) ->
       else
         path.join(argv.root, 'data', incHost.split(':')[0])
       newargv.url = "http://#{incHost}"
+
+      # apply wiki domain configuration, if defined
+      if inWikiDomain
+        newargv = _.assignIn newargv, newargv.wikiDomains[inWikiDomain]
+        newargv.wiki_domain = inWikiDomain
+
       # Create a new server, add it to the list of servers, and
       # once it's ready send the request to it.
       local = server(newargv)

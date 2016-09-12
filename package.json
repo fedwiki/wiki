@@ -1,8 +1,12 @@
 {
   "name": "wiki",
-  "version": "0.9.3",
+  "version": "0.10.0-9",
+  "publishConfig": {
+    "tag": "next"
+  },
   "bin": {
-    "wiki": "./index.js"
+    "wiki": "./index.js",
+    "wiki-migrate": "./scripts/wiki-migrate.js"
   },
   "description": "Federated Wiki",
   "author": {
@@ -27,11 +31,10 @@
     "coffee-script": "1.10",
     "coffee-trace": "~1.4.0",
     "config-chain": "1.1",
-    "glob": "6.0",
+    "glob": "^7.0.3",
     "optimist": "0.6",
-    "wiki-server": "0.8",
-    "wiki-client": "0.7",
-    "wiki-security-persona": "0.1",
+    "lodash": "4",
+    "wiki-client": "next",
     "wiki-plugin-activity": "0.2",
     "wiki-plugin-audio": "0.1",
     "wiki-plugin-bars": "0.3",
@@ -69,14 +72,19 @@
     "wiki-plugin-scatter": "0.3",
     "wiki-plugin-search": "0.1",
     "wiki-plugin-transport": "0.1",
-    "wiki-plugin-video": "0.2"
+    "wiki-plugin-video": "0.2",
+    "wiki-security-passportjs": "next",
+    "wiki-server": "next"
   },
   "devDependencies": {
-    "grunt": "~0.4",
-    "grunt-git-authors": "~3"
+    "grunt": "^1.0.1",
+    "grunt-git-authors": "^3.2.0",
+    "grunt-nsp": "*",
+    "grunt-retire": "*"
   },
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "migrate": "node scripts/wiki-migrate.js"
   },
   "repository": {
     "type": "git",

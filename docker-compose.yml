@@ -14,6 +14,9 @@ web:
 
 ## uncomment to start additional container with differen storage backend
 #
+# PLEASE NOTE: Both redis and couchdb storage modules are NOT compatable with
+#              farm mode.
+#
 ## redis
 #
 # install the redis storage module by running

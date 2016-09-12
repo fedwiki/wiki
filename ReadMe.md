@@ -56,6 +56,15 @@ Options for the server can be passed in many ways:
 Higher in the list takes precedence.
 The server will then try to guess all unspecified options.
 
+### Configuring Security
+
+By default a *default* security module is configured. This makes the wiki read only.
+
+Details on how to configure the bundled [Passport](http://passportjs.org/) based
+security module, and the migration from using Mozilla Persona, see [security configuration](./security.md)
+
+**N.B.** The Mozilla Persona service closes on 30th November 2016.
+
 ### Neighborhood Seeding
 
 Two options are added for seeding a neighborhood.
@@ -72,6 +81,9 @@ Adding `--neighbours 'comma separated list of sites'` will add those sites to th
 **NOTE:** This release sees a change in how the support for different
 datastores is provided, and how they are configured. The previous
 configuration method is *depreciated*, and will be removed in a future version.
+
+There are a number of legacy [database page stores](./db-page-stores.md)
+- they DO NOT work with wiki in farm mode.
 
 ---
 
@@ -98,72 +110,9 @@ The leveldb datastore uses JSON encoded leveldb format and is configured by prov
 
 The leveldb datastore allows for a graceful upgrade path. If a page is not found in leveldb the flatfile datastore will be consulted.
 
+## Docker
 
-#### Database Datastores
-
----
-
-**NOTE:** Database datastore will NOT work when the server is run in farm mode.
-
----
-
-
-##### mongodb
-
-Support for mongoDB is added by installing the `wiki-storage-mongodb` package, this can be
-achieved by running `npm install wiki-storage-mongodb -save` in this directory.
-
-The mongodb connection arguments are specified as follows:
-
-    $ wiki --database '{"type": "mongodb", "url": "...", "options": {...}}'
-
-For convenience the url will also be read from MONGO_URI, MONGOLAB_URI, or MONGOHQ_URL. This smooths the Heroku deployment process somewhat.
-
-The mongodb datastore allows for a graceful upgrade path. If a page is not found in mongodb the flatfile datastore will be consulted.
-
-##### redis
-
-Support for redis is added by installing the `wiki-storage-redis` package, this can be
-achieved by running `npm install wiki-storage-redis -save` in this directory.
-
-The Redis connection arguments are specified as follows:
-
-    $ wiki --database '{"type": "redis", "host": "...", "port": nnn, "options": {...}}'
-
-The Redis datastore allows for a graceful upgrade path. If a page is not found in redis the flatfile datastore will be consulted.
-
-
-
-##### Example config.json for Redis
-
-```
-{
-  "database" : {
-    "type" : "redis",
-    "host" : "your.redis_instance.com",
-    "port" : 6379,
-    "options": { "auth_pass" : "all_mimsy_were_the_borogroves" }
-  }
-}
-```
-
-### Run Wiki in Docker containers with different storage backends
-
-[docker-compose](https://docs.docker.com/compose/) allows to easily spin up docker containers with multiple wiki apps, couchdb and redis storage.
-It is configured through `docker-compose.yml`. By uncommenting the redis and or couchdb paragraghs in `docker-compose.yml` more containers can be started.
-
-     $ docker-compose up -d
-
-If you are not installing the wiki components locally you will need to build the app container by running:
-
-     $ docker-compose build
-     $ docker-compose run web npm install
-     $ docker-compose up -d
-
-Visit $dockerhost:3000 to see your wiki.
-On OSX $dockerhost can be determined by running: `boot2docker ip`. In case you are using [DLite](https://github.com/nlf/dlite) on OSX, $dockerhost is going to be `local.docker`. If you are using [Docker for OSX](https://docs.docker.com/engine/installation/mac/#docker-for-mac), $dockerhost is going to be `localhost`. On Linux the containers bind to 0.0.0.0
-The wiki source directory gets mounted into the app containers under /usr/src/app
-
+Some [notes](./Docker.md) exist.
 
 ## Participation
 
@@ -177,6 +126,4 @@ The [contributing page](./contributing.md) provides details of the repositories 
 
 ## License
 
-You may use the Wiki under either the
-[MIT License](https://github.com/WardCunningham/wiki/blob/master/mit-license.txt) or the
-[GNU General Public License](https://github.com/WardCunningham/wiki/blob/master/gpl-license.txt) (GPL) Version 2.
+[MIT License](https://github.com/FedWiki/wiki/blob/master/LICENSE.txt)
