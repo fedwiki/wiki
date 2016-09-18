@@ -25,9 +25,9 @@ module.exports = exports = (argv) ->
   runningServers = []
 
   if argv.allowed
-    allowedHosts = argv.allowed.split(',')
+    allowedHosts = _.split(argv.allowed, ',')
     allowHost = (host) ->
-      hostDomain = host.split(':')[0]
+      hostDomain = _.split(host, ':')[0]
       if _.includes(allowedHosts, hostDomain)
         return true
       else
@@ -37,7 +37,7 @@ module.exports = exports = (argv) ->
     wikiDomains = _.keys(argv.wikiDomains)
     inWikiDomain = ''
     allowDomain = (host) ->
-      hostDomain = host.split(':')[0]
+      hostDomain = _.split(host, ':')[0]
       inWikiDomain = ''
       _.each wikiDomains, (domain) ->
         if _.endsWith hostDomain, domain
@@ -50,7 +50,7 @@ module.exports = exports = (argv) ->
     allowDomain = () -> true
 
   allow = (host) ->
-    # this requires some work, but...
+    # wikiDomains and allowed should both be optional
     if argv.allowed and allowHost(host)
       return true
     else
@@ -58,7 +58,12 @@ module.exports = exports = (argv) ->
         # host is within a defined wikiDomain
         return true
       else
-        return false
+        if argv.wikiDomains or argv.allowed
+          # host is in the list of allowed hosts
+          return false
+        else
+          # neither wikiDomain or allowed are configured
+          return true
 
 
   farmServ = http.createServer (req, res) ->
