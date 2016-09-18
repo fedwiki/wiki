@@ -74,6 +74,9 @@ argv = optimist
   .options('allowed',
     describe  : 'comma separated list of allowed host names for farm mode.'
   )
+  .options('wikiDomains',
+    describe  : 'use in farm mode to define allowed wiki domains and any wiki domain specific configuration, see documentation.'
+  )
   .options('uploadLimit',
     describe  : 'Set the upload size limit, limits the size page content items, and pages that can be forked'
   )
@@ -131,11 +134,17 @@ else if argv.test
 # If f/farm is set call../lib/farm.coffee with argv object, else call
 # ../lib/server.coffee with argv object.
 else if config.farm
-  console.log('Wiki starting in Farm mode, navigate to a specific server to start it.')
+  console.log('Wiki starting in Farm mode, navigate to a specific server to start it.\n')
+  if !argv.wikiDomains and !argv.allowed
+    console.log 'WARNING : Starting Wiki Farm in promiscous mode\n'
+  if argv.security_type is './security'
+    console.log 'INFORMATION : Using default security - Wiki Farm will be read-only\n'
   farm(config)
 else
   app = server(config)
   app.on 'owner-set', (e) ->
     serv = app.listen app.startOpts.port, app.startOpts.host
     console.log "Federated Wiki server listening on", app.startOpts.port, "in mode:", app.settings.env
+    if argv.security_type is './security'
+      console.log 'INFORMATION : Using default security - Wiki Farm will be read-only\n'
     app.emit 'running-serv', serv
