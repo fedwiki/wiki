@@ -146,5 +146,5 @@ else
     serv = app.listen app.startOpts.port, app.startOpts.host
     console.log "Federated Wiki server listening on", app.startOpts.port, "in mode:", app.settings.env
     if argv.security_type is './security'
-      console.log 'INFORMATION : Using default security - Wiki Farm will be read-only\n'
+      console.log 'INFORMATION : Using default security - Wiki will be read-only\n'
     app.emit 'running-serv', serv
