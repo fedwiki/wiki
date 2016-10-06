@@ -103,6 +103,7 @@ config = cc(argv,
   argv.config,
   'config.json',
   path.join(__dirname, '..', 'config.json'),
+  path.join(getUserHome(), '.wiki', 'config.json'),
   cc.env('wiki_'),
     port: 3000
     root: path.dirname(require.resolve('wiki-server'))
