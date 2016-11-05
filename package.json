@@ -25,11 +25,11 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "coffee-script": "1.10",
+    "coffee-script": "^1.11.1",
     "coffee-trace": "~1.4.0",
-    "config-chain": "1.1",
-    "glob": "^7.0.6",
-    "lodash": "^4.15.0",
+    "config-chain": "^1.1.11",
+    "glob": "^7.1.1",
+    "lodash": "^4.16.6",
     "optimist": "0.6",
     "wiki-client": "^0.8.0",
     "wiki-plugin-activity": "0.2",
@@ -91,6 +91,6 @@
     "url": "https://github.com/fedwiki/wiki/issues"
   },
   "engines": {
-    "node": ">=0.10"
+    "node": ">=4.x"
   }
 }
