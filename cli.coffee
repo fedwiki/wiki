@@ -58,6 +58,9 @@ argv = optimist
   .options('security_type',
     describe  : 'The security plugin to use, see documentation for additional parameters'
   )
+  .options('session_duration',
+    describe  : 'The wiki logon, session, duration in days'
+  )
   .options('id',
     describe  : 'Set the location of the owner identity file'
   )
