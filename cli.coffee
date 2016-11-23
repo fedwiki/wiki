@@ -58,6 +58,13 @@ argv = optimist
   .options('security_type',
     describe  : 'The security plugin to use, see documentation for additional parameters'
   )
+  .options('secure_cookie',
+    describe  : 'When true, session cookie will only be sent over SSL.'
+    boolean   : false
+  )
+  .options('session_duration',
+    describe  : 'The wiki logon, session, duration in days'
+  )
   .options('id',
     describe  : 'Set the location of the owner identity file'
   )
