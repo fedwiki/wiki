@@ -29,7 +29,7 @@
     "coffee-trace": "~1.4.0",
     "config-chain": "^1.1.11",
     "glob": "^7.1.1",
-    "lodash": "^4.16.6",
+    "lodash": "^4.17.2",
     "optimist": "0.6",
     "wiki-client": "^0.8.0",
     "wiki-plugin-activity": "0.2",
@@ -70,8 +70,9 @@
     "wiki-plugin-search": "^0.1.1",
     "wiki-plugin-transport": "^0.1.2",
     "wiki-plugin-video": "^0.2.5",
-    "wiki-security-passportjs": "^0.1.0",
-    "wiki-server": "^0.9.0"
+    "wiki-security-passportjs": "^0.1.1",
+    "wiki-security-friends": "0.1.0",
+    "wiki-server": "^0.9.1"
   },
   "devDependencies": {
     "grunt": "^1.0.1",
