@@ -24,6 +24,16 @@ module.exports = exports = (argv) ->
   # Keep an array of servers that are currently active
   runningServers = []
 
+  # Listen for SIGUSR2 and restart wiki servers
+  process.on 'SIGUSR2', () ->
+    console.log 'Recieved SIGUSR2, restarting wiki servers'
+    oldHosts = hosts
+    hosts = {}
+    runningServers = []
+    setTimeout( () ->
+      oldHosts = null
+    , 5000)
+
   if argv.allowed
     allowedHosts = _.split(argv.allowed, ',')
     allowHost = (host) ->
