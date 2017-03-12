@@ -10,6 +10,7 @@
 # Smallest-Federated-Wiki express server
 
 path = require 'path'
+cluster = require 'cluster'
 
 optimist = require 'optimist'
 cc = require 'config-chain'
@@ -124,8 +125,9 @@ config = cc(argv,
 # If h/help is set print the generated help message and exit.
 if argv.help
   optimist.showHelp()
+  return
 # If v/version is set print the version of the wiki components and exit.
-else if argv.version
+if argv.version
   console.log('wiki: ' + require('./package').version)
   console.log('wiki-server: ' + require('wiki-server/package').version)
   console.log('wiki-client: ' + require('wiki-client/package').version)
@@ -135,24 +137,31 @@ else if argv.version
   glob 'wiki-plugin-*', {cwd: config.packageDir}, (e, plugins) ->
     plugins.map (plugin) ->
       console.log(plugin + ': ' + require(plugin + '/package').version)
+  return
 
-else if argv.test
+if argv.test
   console.log "WARNING: Server started in testing mode, other options ignored"
   server({port: 33333, data: path.join(argv.root, 'spec', 'data')})
-# If f/farm is set call../lib/farm.coffee with argv object, else call
-# ../lib/server.coffee with argv object.
-else if config.farm
-  console.log('Wiki starting in Farm mode, navigate to a specific server to start it.\n')
-  if !argv.wikiDomains and !argv.allowed
-    console.log 'WARNING : Starting Wiki Farm in promiscous mode\n'
-  if argv.security_type is './security'
-    console.log 'INFORMATION : Using default security - Wiki Farm will be read-only\n'
-  farm(config)
+  return
+
+if cluster.isMaster
+  cluster.on 'disconnect', ->
+    console.error 'disconnect'
+    cluster.fork()
+  cluster.fork()
 else
-  app = server(config)
-  app.on 'owner-set', (e) ->
-    serv = app.listen app.startOpts.port, app.startOpts.host
-    console.log "Federated Wiki server listening on", app.startOpts.port, "in mode:", app.settings.env
+  if config.farm
+    console.log('Wiki starting in Farm mode, navigate to a specific server to start it.\n')
+    if !argv.wikiDomains and !argv.allowed
+      console.log 'WARNING : Starting Wiki Farm in promiscous mode\n'
     if argv.security_type is './security'
-      console.log 'INFORMATION : Using default security - Wiki will be read-only\n'
-    app.emit 'running-serv', serv
+      console.log 'INFORMATION : Using default security - Wiki Farm will be read-only\n'
+    farm(config)
+  else
+    app = server(config)
+    app.on 'owner-set', (e) ->
+      serv = app.listen app.startOpts.port, app.startOpts.host
+      console.log "Federated Wiki server listening on", app.startOpts.port, "in mode:", app.settings.env
+      if argv.security_type is './security'
+        console.log 'INFORMATION : Using default security - Wiki will be read-only\n'
+      app.emit 'running-serv', serv
