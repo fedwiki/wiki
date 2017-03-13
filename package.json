@@ -28,11 +28,11 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "coffee-script": "^1.11.1",
+    "coffee-script": "^1.12.4",
     "coffee-trace": "~1.4.0",
     "config-chain": "^1.1.11",
     "glob": "^7.1.1",
-    "lodash": "^4.17.2",
+    "lodash": "^4.17.4",
     "optimist": "0.6",
     "wiki-client": "next",
     "wiki-plugin-activity": "next",
@@ -81,7 +81,7 @@
     "grunt": "^1.0.1",
     "grunt-git-authors": "^3.2.0",
     "grunt-nsp": "^2.3.1",
-    "grunt-retire": "^1.0.3"
+    "grunt-retire": "^1.0.7"
   },
   "scripts": {
     "start": "node index.js",
