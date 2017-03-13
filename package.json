@@ -95,6 +95,6 @@
     "url": "https://github.com/fedwiki/wiki/issues"
   },
   "engines": {
-    "node": ">=4.x"
+    "node": ">=6.x"
   }
 }
