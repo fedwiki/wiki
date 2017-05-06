@@ -1,9 +1,6 @@
 {
   "name": "wiki",
   "version": "0.11.0-2",
-  "publishConfig": {
-    "tag": "next"
-  },
   "bin": {
     "wiki": "./index.js",
     "wiki-migrate": "./scripts/wiki-migrate.js"
@@ -34,8 +31,8 @@
     "glob": "^7.1.1",
     "lodash": "^4.17.4",
     "optimist": "0.6",
-    "wiki-client": "next",
-    "wiki-plugin-activity": "next",
+    "wiki-client": "^0.9.0",
+    "wiki-plugin-activity": "^0.3.0",
     "wiki-plugin-audio": "^0.1.5",
     "wiki-plugin-bars": "0.3",
     "wiki-plugin-bytebeat": "0.2",
@@ -69,14 +66,14 @@
     "wiki-plugin-reference": "0.2",
     "wiki-plugin-report": "0.2",
     "wiki-plugin-rollup": "0.2",
-    "wiki-plugin-roster": "next",
+    "wiki-plugin-roster": "^0.2.0",
     "wiki-plugin-scatter": "0.3",
     "wiki-plugin-search": "^0.1.1",
     "wiki-plugin-transport": "^0.1.2",
     "wiki-plugin-video": "^0.2.5",
-    "wiki-security-passportjs": "^0.1.1",
     "wiki-security-friends": "0.1.0",
-    "wiki-server": "next"
+    "wiki-security-passportjs": "^0.1.1",
+    "wiki-server": "^0.10.0"
   },
   "devDependencies": {
     "grunt": "^1.0.1",
