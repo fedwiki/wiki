@@ -145,9 +145,12 @@ if argv.test
   return
 
 if cluster.isMaster
-  cluster.on 'disconnect', ->
-    console.error 'disconnect'
-    cluster.fork()
+  cluster.on 'exit', (worker, code, signal) ->
+    if code is 0
+      console.log 'restarting wiki server'
+      cluster.fork()
+    else
+      console.error 'server unexpectly exitted, %d (%s)', worker.process.pid, signal || code
   cluster.fork()
 else
   if config.farm
