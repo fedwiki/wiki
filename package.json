@@ -1,6 +1,6 @@
 {
   "name": "wiki",
-  "version": "0.12.2",
+  "version": "0.13.0",
   "bin": {
     "wiki": "./index.js",
     "wiki-migrate": "./scripts/wiki-migrate.js"
