@@ -110,10 +110,6 @@ The leveldb datastore uses JSON encoded leveldb format and is configured by prov
 
 The leveldb datastore allows for a graceful upgrade path. If a page is not found in leveldb the flatfile datastore will be consulted.
 
-## Docker
-
-Some [notes](./Docker.md) exist.
-
 ## Participation
 
 We're happy to take issues or pull requests regarding the goals and
