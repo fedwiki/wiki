@@ -95,14 +95,32 @@ module.exports = exports = (argv) ->
       # Create a new options object, copy over the options used to start the
       # farm, and modify them to make sense for servers spawned from the farm.
 
-      # do deep copy, needed for database configuration for instance
-      copy = (map) ->
-        clone  = {}
-        for key, value of map
-          clone[key] = if typeof value == "object" then copy(value) else value
-        clone
+      # do deep copy, needed for nested configurations - e.g. config of wiki domains
+      clone = (map) ->
+        copy = undefined
 
-      newargv = copy argv
+        if map is null or typeof map isnt 'object'
+          return map
+
+        if  map instanceof Array
+          copy = []
+          i = 0
+          len = map.length
+          while i < len
+            copy[i] = clone(map[i])
+            i++
+          return copy
+
+        if typeof map is 'object'
+          copy = {}
+          for attr of map
+            copy[attr] = clone(map[attr])
+          return copy
+
+        console.log "Unsupported:", typeof map
+        return
+
+      newargv = clone argv
 
       newargv.data = if argv.data
         path.join(argv.data, incHost.split(':')[0])
