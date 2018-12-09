@@ -25,7 +25,7 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "coffee-script": "^1.12.6",
+    "coffeescript": "^1.12.6",
     "coffee-trace": "~1.4.0",
     "config-chain": "^1.1.12",
     "glob": "^7.1.3",
