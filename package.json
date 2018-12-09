@@ -80,7 +80,6 @@
   "devDependencies": {
     "grunt": "^1.0.3",
     "grunt-git-authors": "^3.2.0",
-    "grunt-nsp": "^2.3.1",
     "grunt-retire": "^1.0.7"
   },
   "scripts": {
