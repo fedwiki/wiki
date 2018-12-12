@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 // **index.js**
-require('coffee-script');
-require('coffee-script/register')
+require('coffeescript');
+require('coffeescript/register')
 
 module.exports = require('./cli');
