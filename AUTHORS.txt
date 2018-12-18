@@ -7,3 +7,4 @@ Leander <leander@wesrc.com>
 Thomas Kalka <thomas.kalka@co-buero.de>
 Santiago Ferreira <santiago.ferreira@wyeworks.com>
 Sebastian Hoß <mail@shoss.de>
+Eric Dobbs <eric@dobbse.net>
