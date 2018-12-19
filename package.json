@@ -72,9 +72,9 @@
     "wiki-plugin-search": "^0.1.2",
     "wiki-plugin-transport": "^0.1.3",
     "wiki-plugin-video": "^0.2.5",
-    "wiki-security-friends": "0.1.0",
-    "wiki-security-passportjs": "^0.3.1",
-    "wiki-server": "^0.14.0"
+    "wiki-security-friends": "^0.2.0",
+    "wiki-security-passportjs": "^0.4.0",
+    "wiki-server": "^0.15.0"
   },
   "devDependencies": {
     "grunt": "^1.0.3",
