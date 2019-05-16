@@ -1,6 +1,8 @@
 # Configuring security
 
-By default wiki will, if we don't configure a security module, make all content read-only.
+By default wiki will, if we don't configure a security module, make all content read-only. 
+
+The previous default where unclaimed sites were editable by anybody can be enabled by setting `security_legacy` to true.
 
 This version of wiki will install
 
