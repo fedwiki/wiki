@@ -28,7 +28,14 @@ The quickest way to set up wiki on your local machine is to install it globally 
 
 Visit localhost:3000 to see your wiki. If you choose a host visible to the internet then others in the federation can use your work.
 
-NOTE: By default, `wiki` will store data in `~/.wiki`, whether installed globally or as a dependency. This path can be set via the `--data` flag like `wiki --data /tmp/wiki/`. More info below.
+### Running a test server
+
+If you would prefer to test wiki without installing system wide, you can do the following (in a directory of your choice):
+
+    $ npm install wiki
+    $ npx wiki --data ./data
+
+Without the `--data` argument, running `wiki` (installed globally or otherwise) will store data in `~/.wiki`.
 
 ## Updating the Server Software
 
