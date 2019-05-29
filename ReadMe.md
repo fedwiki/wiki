@@ -28,6 +28,8 @@ The quickest way to set up wiki on your local machine is to install it globally 
 
 Visit localhost:3000 to see your wiki. If you choose a host visible to the internet then others in the federation can use your work.
 
+NOTE: By default, `wiki` will store data in `~/.wiki`, whether installed globally or as a dependency. This path can be set via the `--data` flag like `wiki --data /tmp/wiki/`. More info below.
+
 ## Updating the Server Software
 
 From time to time some of the packages that makeup the wiki software will be updated. To see if updates are available for any of the wiki packages, run:
