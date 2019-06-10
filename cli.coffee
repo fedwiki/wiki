@@ -9,6 +9,9 @@
 # **cli.coffee** command line interface for the
 # Smallest-Federated-Wiki express server
 
+http = require('http')
+socketio = require('socket.io')
+
 path = require 'path'
 cluster = require 'cluster'
 
@@ -163,7 +166,10 @@ else
   else
     app = server(config)
     app.on 'owner-set', (e) ->
-      serv = app.listen app.startOpts.port, app.startOpts.host
+      server = http.Server(app)
+      app.io = socketio(server)
+
+      serv = server.listen app.startOpts.port, app.startOpts.host
       console.log "Federated Wiki server listening on", app.startOpts.port, "in mode:", app.settings.env
       if argv.security_type is './security'
         console.log 'INFORMATION : Using default security - Wiki will be read-only\n'
