@@ -28,6 +28,15 @@ The quickest way to set up wiki on your local machine is to install it globally 
 
 Visit localhost:3000 to see your wiki. If you choose a host visible to the internet then others in the federation can use your work.
 
+### Running a test server
+
+If you would prefer to test wiki without installing system wide, you can do the following (in a directory of your choice):
+
+    $ npm install wiki
+    $ npx wiki --data ./data
+
+Without the `--data` argument, running `wiki` (installed globally or otherwise) will store data in `~/.wiki`.
+
 ## Updating the Server Software
 
 From time to time some of the packages that makeup the wiki software will be updated. To see if updates are available for any of the wiki packages, run:
