@@ -25,6 +25,7 @@
   ],
   "license": "MIT",
   "dependencies": {
+    "chokidar": "^3.3.0",
     "coffeescript": "^2.4.1",
     "config-chain": "^1.1.12",
     "glob": "^7.1.4",
@@ -93,6 +94,6 @@
     "url": "https://github.com/fedwiki/wiki/issues"
   },
   "engines": {
-    "node": ">=8.x"
+    "node": ">=10.10.0"
   }
 }

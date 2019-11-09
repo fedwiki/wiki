@@ -11,6 +11,8 @@
 # in front of servers that it creates
 
 path = require 'path'
+fs = require 'fs'
+chokidar = require 'chokidar'
 
 http = require 'http'
 
@@ -23,6 +25,36 @@ module.exports = exports = (argv) ->
   hosts = {}
   # Keep an array of servers that are currently active
   runningServers = []
+
+  # if farm is restricting new wiki creation, keep a list of existing wiki within the farm
+  existingWiki = []
+
+  if argv.restrict
+    wikiDir = if argv.data
+      argv.data
+    else
+      path.join(argv.root, 'data')
+    # 
+    existingWiki = fs.readdirSync(wikiDir, {withFileTypes: true})
+      .filter (item) -> item.isDirectory()
+      .map (item) -> item.name
+
+    # we don't want to have to restart wiki each time a new wiki is added, so watch for new wiki directories
+    watcher = chokidar.watch wikiDir, {
+      persistent: true
+      ignoreInitial: true
+      depth: 0
+    }
+
+    watcher
+      .on('addDir', (newWiki) -> 
+        newWiki = path.basename(newWiki)
+        existingWiki.push(newWiki)
+      .on('unlinkDir', (delWiki) -> 
+        delWiki = path.basename(delWiki)
+        _.pull(existingWiki, delWiki)
+
+
 
   if argv.allowed
     allowedHosts = _.split(argv.allowed, ',')
@@ -50,6 +82,9 @@ module.exports = exports = (argv) ->
     allowDomain = () -> true
 
   allow = (host) ->
+    # if a farm is restricting new wiki we will only let the wiki server start if directory for the wiki already exists
+    if argv.restrict and !existingWiki.includes(host)
+      return false
     # wikiDomains and allowed should both be optional
     if argv.allowed and allowHost(host)
       return true
@@ -69,7 +104,7 @@ module.exports = exports = (argv) ->
   farmServ = http.createServer (req, res) ->
 
     if req.headers?.host
-      incHost = req.headers.host
+      incHost = req.headers.host.split(':')[0]
     else
       res.statusCode = 400
       res.end('Missing host header')

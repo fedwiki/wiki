@@ -46,6 +46,9 @@ argv = optimist
     alias     : 'f'
     describe  : 'Turn on the farm?'
   )
+  .options('restrict',
+    describe  : 'Only start wiki server for wiki that exist'
+  )
   .options('admin',
     describe  : 'Wiki server administrator identity'
   )
