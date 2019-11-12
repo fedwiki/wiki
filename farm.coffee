@@ -20,6 +20,8 @@ server = require 'wiki-server'
 
 _ = require('lodash')
 
+errorPage = require './error-page'
+
 module.exports = exports = (argv) ->
   # Map incoming hosts to their wiki's port
   hosts = {}
@@ -117,7 +119,8 @@ module.exports = exports = (argv) ->
       # check that request is for an allowed host
       unless allow(incHost)
         res.statusCode = 400
-        res.end('Invalid host')
+        errorText = errorPage.render('Requested Wiki Does Not Exist','The wiki you are trying to access does not exist.','')
+        res.end(errorText)
         return
 
 
