@@ -82,19 +82,31 @@ module.exports = exports = (argv) ->
 
   allow = (host) ->
     # wikiDomains and allowed should both be optional
-    if argv.allowed and allowHost(host)
-      return true
-    else
-      if argv.wikiDomains and allowDomain(host)
+    if argv.allowed
+      if allowHost(host)
+        # host is in the allowed list
+        if argv.wikiDomains
+          if allowDomain(host)
+            # host is within a defined wikiDomain
+            return true
+          else
+            # while host is in the allowed list, it is not within an allowed domain
+            return false
+        return true
+      else
+        # host is not within the allowed list
+        return false
+  
+    if argv.wikiDomains
+      if allowDomain(host)
         # host is within a defined wikiDomain
         return true
       else
-        if argv.wikiDomains or argv.allowed
-          # host is in the list of allowed hosts
-          return false
-        else
-          # neither wikiDomain or allowed are configured
-          return true
+        # host is not within a defined wikiDomain
+        return false
+
+    # neither wikiDomain or allowed are configured
+    return true
 
 
   farmServ = http.createServer (req, res) ->
