@@ -24,13 +24,13 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "coffeescript": "^2.4.1",
+    "coffeescript": "^2.5.1",
     "config-chain": "^1.1.12",
     "glob": "^7.1.6",
     "lodash": "^4.17.15",
     "optimist": "0.6",
     "socket.io": "^2.2.0",
-    "wiki-client": "^0.19.0",
+    "wiki-client": "^0.20.0",
     "wiki-plugin-activity": "^0.4.4",
     "wiki-plugin-assets": "^0.2.4",
     "wiki-plugin-audio": "^0.1.8",
@@ -52,7 +52,7 @@
     "wiki-plugin-html": "^0.3.4",
     "wiki-plugin-image": "^0.2.3",
     "wiki-plugin-line": "^0.3.1",
-    "wiki-plugin-map": "^0.3.7",
+    "wiki-plugin-map": "^0.3.8",
     "wiki-plugin-markdown": "^0.3.2",
     "wiki-plugin-mathjax": "^0.2.5",
     "wiki-plugin-metabolism": "^0.2.3",
@@ -71,10 +71,10 @@
     "wiki-plugin-scatter": "^0.3.1",
     "wiki-plugin-search": "^0.1.7",
     "wiki-plugin-transport": "^0.1.4",
-    "wiki-plugin-video": "^0.2.8",
+    "wiki-plugin-video": "^0.2.9",
     "wiki-security-friends": "^0.2.2",
-    "wiki-security-passportjs": "^0.4.1",
-    "wiki-server": "^0.16.0"
+    "wiki-security-passportjs": "^0.4.2",
+    "wiki-server": "^0.17.0"
   },
   "devDependencies": {
     "grunt": "^1.0.4",
@@ -93,6 +93,6 @@
     "url": "https://github.com/fedwiki/wiki/issues"
   },
   "engines": {
-    "node": ">=8.x"
+    "node": ">=10.x"
   }
 }
