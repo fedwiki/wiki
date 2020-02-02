@@ -11,6 +11,8 @@
 # in front of servers that it creates
 
 path = require 'path'
+fs = require 'fs'
+chokidar = require 'chokidar'
 
 http = require 'http'
 socketio = require 'socket.io'
@@ -19,6 +21,8 @@ server = require 'wiki-server'
 
 _ = require('lodash')
 
+errorPage = require './error-page'
+
 module.exports = exports = (argv) ->
   # Map incoming hosts to their wiki's port
   hosts = {}
@@ -26,7 +30,34 @@ module.exports = exports = (argv) ->
   runningServers = []
 
   if argv.allowed
-    allowedHosts = _.split(argv.allowed, ',')
+    if argv.allowed is '*'
+      # we will allow any wiki which we have a directory exists
+      wikiDir = argv.data
+      allowedHosts = fs.readdirSync(wikiDir, {withFileTypes: true})
+        .filter (item) -> item.isDirectory()
+        .map (item) -> item.name
+      
+      # watch for new wiki directories being created (or deleted), and keep allowedHosts up to date
+      watcher = chokidar.watch wikiDir, {
+        persistent: true
+        ignoreInitial: true
+        depth: 0
+      }
+
+      watcher
+        .on 'addDir', (newWiki) ->
+          newWiki = path.basename(newWiki)
+          allowedHosts.push(newWiki)
+        .on 'unlinkDir', (delWiki) ->
+          delWiki = path.basename(delWiki)
+          _.pull(allowedHosts, delWiki)
+
+    else
+      # we have a list of wiki that are allowed
+      allowedHosts = argv.allowed
+        .split ','                      # split up the coma seperated list of allowed hosts
+        .map (item) -> item.trim()      # trim any whitespace padding from the items in the list
+
     allowHost = (host) ->
       hostDomain = _.split(host, ':')[0]
       if _.includes(allowedHosts, hostDomain)
@@ -52,25 +83,37 @@ module.exports = exports = (argv) ->
 
   allow = (host) ->
     # wikiDomains and allowed should both be optional
-    if argv.allowed and allowHost(host)
-      return true
-    else
-      if argv.wikiDomains and allowDomain(host)
+    if argv.allowed
+      if allowHost(host)
+        # host is in the allowed list
+        if argv.wikiDomains
+          if allowDomain(host)
+            # host is within a defined wikiDomain
+            return true
+          else
+            # while host is in the allowed list, it is not within an allowed domain
+            return false
+        return true
+      else
+        # host is not within the allowed list
+        return false
+  
+    if argv.wikiDomains
+      if allowDomain(host)
         # host is within a defined wikiDomain
         return true
       else
-        if argv.wikiDomains or argv.allowed
-          # host is in the list of allowed hosts
-          return false
-        else
-          # neither wikiDomain or allowed are configured
-          return true
+        # host is not within a defined wikiDomain
+        return false
+
+    # neither wikiDomain or allowed are configured
+    return true
 
 
   farmServ = http.createServer (req, res) ->
 
     if req.headers?.host
-      incHost = req.headers.host
+      incHost = req.headers.host.split(':')[0]
     else
       res.statusCode = 400
       res.end('Missing host header')
@@ -89,7 +132,8 @@ module.exports = exports = (argv) ->
       # check that request is for an allowed host
       unless allow(incHost)
         res.statusCode = 400
-        res.end('Invalid host')
+        errorText = errorPage.render('Requested Wiki Does Not Exist','The wiki you are trying to access does not exist.','')
+        res.end(errorText)
         return
 
 

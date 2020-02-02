@@ -49,6 +49,9 @@ argv = optimist
     alias     : 'f'
     describe  : 'Turn on the farm?'
   )
+  .options('allowed',
+    describe  : 'Either a coma seperated list of wiki, or * to only allow wiki which exist'
+  )
   .options('admin',
     describe  : 'Wiki server administrator identity'
   )
