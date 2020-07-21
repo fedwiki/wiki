@@ -24,15 +24,15 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "chokidar": "^3.3.1",
+    "chokidar": "^3.4.1",
     "coffeescript": "^2.5.1",
     "config-chain": "^1.1.12",
     "glob": "^7.1.6",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.19",
     "optimist": "0.6",
     "socket.io": "^2.2.0",
-    "wiki-client": "^0.20.0",
-    "wiki-plugin-activity": "^0.4.4",
+    "wiki-client": "^0.20.3",
+    "wiki-plugin-activity": "^0.4.5",
     "wiki-plugin-assets": "^0.2.4",
     "wiki-plugin-audio": "^0.1.8",
     "wiki-plugin-bars": "^0.3.2",
@@ -47,7 +47,7 @@
     "wiki-plugin-flagmatic": "^0.1.4",
     "wiki-plugin-force": "^0.3.1",
     "wiki-plugin-future": "^0.2.3",
-    "wiki-plugin-graphviz": "^0.4.0",
+    "wiki-plugin-graphviz": "^0.5.0",
     "wiki-plugin-grep": "^1.0.2",
     "wiki-plugin-html": "^0.3.4",
     "wiki-plugin-image": "^0.2.3",
@@ -73,13 +73,13 @@
     "wiki-plugin-transport": "^0.1.4",
     "wiki-plugin-video": "^0.2.9",
     "wiki-security-friends": "^0.2.2",
-    "wiki-security-passportjs": "^0.4.2",
-    "wiki-server": "^0.17.0"
+    "wiki-security-passportjs": "^0.4.8",
+    "wiki-server": "^0.17.8"
   },
   "devDependencies": {
-    "grunt": "^1.0.4",
+    "grunt": "^1.2.1",
     "grunt-git-authors": "^3.2.0",
-    "grunt-retire": "^1.0.8"
+    "grunt-retire": "^1.0.9"
   },
   "scripts": {
     "start": "node index.js",
