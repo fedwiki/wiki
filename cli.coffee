@@ -15,7 +15,7 @@ socketio = require('socket.io')
 path = require 'path'
 cluster = require 'cluster'
 
-optimist = require 'optimist'
+parseArgs = require 'minimist'
 cc = require 'config-chain'
 glob = require 'glob'
 server = require 'wiki-server'
@@ -27,91 +27,21 @@ getUserHome = ->
 
 # Handle command line options
 
-argv = optimist
-  .usage('Usage: $0')
-  .options('url',
-    alias     : 'u'
-    describe  : 'Important: Your server URL, used as Persona audience during verification'
-  )
-  .options('port',
-    alias     : 'p'
-    describe  : 'Port'
-  )
-  .options('data',
-    alias     : 'd'
-    describe  : 'location of flat file data'
-  )
-  .options('root',
-    alias     : 'r'
-    describe  : 'Application root folder'
-  )
-  .options('farm',
-    alias     : 'f'
-    describe  : 'Turn on the farm?'
-  )
-  .options('allowed',
-    describe  : 'Either a coma seperated list of wiki, or * to only allow wiki which exist'
-  )
-  .options('admin',
-    describe  : 'Wiki server administrator identity'
-  )
-  .options('home',
-    describe  : 'The page to go to instead of index.html'
-  )
-  .options('host',
-    alias     : 'o'
-    describe  : 'Host to accept connections on, falsy == any'
-  )
-  .options('security_type',
-    describe  : 'The security plugin to use, see documentation for additional parameters'
-  )
-  .options('secure_cookie',
-    describe  : 'When true, session cookie will only be sent over SSL.'
-    boolean   : false
-  )
-  .options('session_duration',
-    describe  : 'The wiki logon, session, duration in days'
-  )
-  .options('id',
-    describe  : 'Set the location of the owner identity file'
-  )
-  .options('database',
-    describe  : 'JSON object for database config'
-  )
-  .options('neighbors',
-    describe  : 'comma separated list of neighbor sites to seed'
-  )
-  .options('autoseed',
-    describe  : 'Seed all sites in a farm to each other site in the farm.'
-    boolean   : true
-  )
-  .options('allowed',
-    describe  : 'comma separated list of allowed host names for farm mode.'
-  )
-  .options('wikiDomains',
-    describe  : 'use in farm mode to define allowed wiki domains and any wiki domain specific configuration, see documentation.'
-  )
-  .options('uploadLimit',
-    describe  : 'Set the upload size limit, limits the size page content items, and pages that can be forked'
-  )
-  .options('test',
-    boolean   : true
-    describe  : 'Set server to work with the rspec integration tests'
-  )
-  .options('help',
-    alias     : 'h'
-    boolean   : true
-    describe  : 'Show this help info and exit'
-  )
-  .options('config',
-    alias     : 'conf'
-    describe  : 'Optional config file.'
-  )
-  .options('version',
-    alias     : 'v'
-    describe  : 'Show version number and exit'
-  )
-  .argv
+opts = {
+  alias: {
+    u: 'url'
+    p: 'port'
+    d: 'data'
+    r: 'root'
+    f: 'farm'
+    o: 'host'
+    h: 'help'
+    conf: 'config'
+    v: 'version'
+  }
+} 
+
+argv = parseArgs(process.argv.slice(2), opts)
 
 config = cc(argv,
   argv.config,
@@ -128,10 +58,18 @@ config = cc(argv,
     cookieSecret: require('crypto').randomBytes(64).toString('hex')
 ).store
 
-# If h/help is set print the generated help message and exit.
+# If h/help is set print the help message and exit.
 if argv.help
-  optimist.showHelp()
+  console.log("""
+  Usage: wiki
+
+  Options:
+    --help, -h          Show this help info and exit
+    --config, --conf    Optional config file.
+    --version, -v       Show version number and exit
+  """)
   return
+
 # If v/version is set print the version of the wiki components and exit.
 if argv.version
   console.log('wiki: ' + require('./package').version)
