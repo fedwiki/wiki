@@ -29,7 +29,7 @@
     "config-chain": "^1.1.12",
     "glob": "^7.1.6",
     "lodash": "^4.17.19",
-    "optimist": "0.6",
+    "minimist": "^1.2.5",
     "socket.io": "^2.2.0",
     "wiki-client": "^0.20.3",
     "wiki-plugin-activity": "^0.4.5",
