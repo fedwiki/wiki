@@ -31,7 +31,7 @@
     "lodash": "^4.17.19",
     "minimist": "^1.2.5",
     "socket.io": "^2.2.0",
-    "wiki-client": "^0.20.3",
+    "wiki-client": "^0.21.0",
     "wiki-plugin-activity": "^0.4.5",
     "wiki-plugin-assets": "^0.2.4",
     "wiki-plugin-audio": "^0.1.8",
@@ -47,12 +47,12 @@
     "wiki-plugin-flagmatic": "^0.1.4",
     "wiki-plugin-force": "^0.3.1",
     "wiki-plugin-future": "^0.2.3",
-    "wiki-plugin-graphviz": "^0.5.0",
+    "wiki-plugin-graphviz": "^0.6.0",
     "wiki-plugin-grep": "^1.0.2",
     "wiki-plugin-html": "^0.3.4",
     "wiki-plugin-image": "^0.2.3",
     "wiki-plugin-line": "^0.3.1",
-    "wiki-plugin-map": "^0.3.8",
+    "wiki-plugin-map": "^0.4.0",
     "wiki-plugin-markdown": "^0.3.2",
     "wiki-plugin-mathjax": "^0.2.5",
     "wiki-plugin-metabolism": "^0.2.3",
@@ -74,7 +74,7 @@
     "wiki-plugin-video": "^0.2.9",
     "wiki-security-friends": "^0.2.2",
     "wiki-security-passportjs": "^0.4.8",
-    "wiki-server": "^0.17.8"
+    "wiki-server": "^0.18.0"
   },
   "devDependencies": {
     "grunt": "^1.2.1",
