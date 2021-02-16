@@ -15,7 +15,7 @@ fs = require 'fs'
 chokidar = require 'chokidar'
 
 http = require 'http'
-socketio = require 'socket.io'
+# socketio = require 'socket.io'
 
 server = require 'wiki-server'
 
@@ -181,7 +181,7 @@ module.exports = exports = (argv) ->
       # Create a new server, add it to the list of servers, and
       # once it's ready send the request to it.
       local = server(newargv)
-      local.io = io
+      # local.io = io
       hosts[incHost] = local
       runningServers.push(local)
 
@@ -197,5 +197,5 @@ module.exports = exports = (argv) ->
         local.emit 'running-serv', farmServ
         hosts[incHost](req, res)
 
-  io = socketio(farmServ)
+  # io = socketio(farmServ)
   runningFarmServ = farmServ.listen(argv.port, argv.host)

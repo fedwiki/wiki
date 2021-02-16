@@ -10,7 +10,7 @@
 # Smallest-Federated-Wiki express server
 
 http = require('http')
-socketio = require('socket.io')
+# socketio = require('socket.io')
 
 path = require 'path'
 cluster = require 'cluster'
@@ -108,7 +108,7 @@ else
     app = server(config)
     app.on 'owner-set', (e) ->
       server = http.Server(app)
-      app.io = socketio(server)
+      # app.io = socketio(server)
 
       serv = server.listen app.startOpts.port, app.startOpts.host
       console.log "Federated Wiki server listening on", app.startOpts.port, "in mode:", app.settings.env
