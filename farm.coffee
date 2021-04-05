@@ -59,22 +59,26 @@ module.exports = exports = (argv) ->
         .map (item) -> item.trim()      # trim any whitespace padding from the items in the list
 
     allowHost = (host) ->
-      hostDomain = _.split(host, ':')[0]
-      if _.includes(allowedHosts, hostDomain)
+      hostDomain = host.split(':')[0]
+      if allowedHosts.includes(hostDomain)
         return true
       else
         return false
 
   if argv.wikiDomains
-    wikiDomains = _.keys(argv.wikiDomains)
+    wikiDomains = Object.keys(argv.wikiDomains)
     inWikiDomain = ''
     allowDomain = (host) ->
-      hostDomain = _.split(host, ':')[0]
-      inWikiDomain = ''
-      _.each wikiDomains, (domain) ->
-        if _.endsWith hostDomain, domain
-          inWikiDomain = domain
-      if inWikiDomain
+      hostDomain = host.split(':')[0]
+      possibleWikiDomain = []
+      wikiDomains.forEach((domain) ->
+        if hostDomain.endsWith(domain)
+          possibleWikiDomain.push(domain)
+        )
+      if possibleWikiDomain
+        inWikiDomain = possibleWikiDomain.reduce((a, b) ->
+          if a.length > b.length then a else b
+        )
         return true
       else
         return false
