@@ -75,7 +75,7 @@ module.exports = exports = (argv) ->
         if hostDomain.endsWith(domain)
           possibleWikiDomain.push(domain)
         )
-      if possibleWikiDomain
+      if possibleWikiDomain.length > 0
         inWikiDomain = possibleWikiDomain.reduce((a, b) ->
           if a.length > b.length then a else b
         )
