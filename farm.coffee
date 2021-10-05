@@ -72,7 +72,8 @@ module.exports = exports = (argv) ->
       hostDomain = host.split(':')[0]
       possibleWikiDomain = []
       wikiDomains.forEach((domain) ->
-        if hostDomain.endsWith(domain)
+        dotDomain = '.' + domain
+        if hostDomain is domain or hostDomain.endsWith(dotDomain)
           possibleWikiDomain.push(domain)
         )
       if possibleWikiDomain.length > 0
