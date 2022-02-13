@@ -102,7 +102,7 @@ else
     if !argv.wikiDomains and !argv.allowed
       console.log 'WARNING : Starting Wiki Farm in promiscous mode\n'
     if argv.security_type is './security'
-      console.log 'INFORMATION : Using default security - Wiki Farm will be read-only\n'
+      console.log 'INFORMATION : Using default security - Wiki Farm will be read-only\n' unless (argv.security_legacy)
     farm(config)
   else
     app = server(config)
@@ -113,5 +113,5 @@ else
       serv = server.listen app.startOpts.port, app.startOpts.host
       console.log "Federated Wiki server listening on", app.startOpts.port, "in mode:", app.settings.env
       if argv.security_type is './security'
-        console.log 'INFORMATION : Using default security - Wiki will be read-only\n'
+        console.log 'INFORMATION : Using default security - Wiki will be read-only\n' unless (argv.security_legacy)
       app.emit 'running-serv', serv
