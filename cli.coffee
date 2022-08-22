@@ -54,6 +54,7 @@ config = cc(argv,
     home: 'welcome-visitors'
     security_type: './security'
     data: path.join(getUserHome(), '.wiki') # see also defaultargs
+    commons: path.join(getUserHome(), '.wiki', 'commons')
     packageDir: path.resolve(path.join(__dirname, 'node_modules'))
     cookieSecret: require('crypto').randomBytes(64).toString('hex')
 ).store

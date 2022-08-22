@@ -136,8 +136,9 @@ module.exports = exports = (argv) ->
 
       # check that request is for an allowed host
       unless allow(incHost)
+        upHost = incHost.split('.').slice(1).join('.')
         res.statusCode = 400
-        errorText = errorPage.render('Requested Wiki Does Not Exist','The wiki you are trying to access does not exist.','')
+        errorText = errorPage.render('Requested Wiki Does Not Exist','The wiki you are trying to access does not exist.',"You may visit <a href='//#{upHost}'>#{upHost}</a> for more information.")
         res.end(errorText)
         return
 
