@@ -54,10 +54,12 @@ config = cc(argv,
     home: 'welcome-visitors'
     security_type: './security'
     data: path.join(getUserHome(), '.wiki') # see also defaultargs
-    commons: path.join(getUserHome(), '.wiki', 'commons')
     packageDir: path.resolve(path.join(__dirname, 'node_modules'))
     cookieSecret: require('crypto').randomBytes(64).toString('hex')
 ).store
+
+unless config.commons
+  config.commons = path.join(config.data, 'commons')
 
 # If h/help is set print the help message and exit.
 if argv.help
