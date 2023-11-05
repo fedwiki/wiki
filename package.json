@@ -27,7 +27,7 @@
     "chokidar": "^3.5.2",
     "coffeescript": "^2.6.0",
     "config-chain": "^1.1.13",
-    "glob": "^10.3.10",
+    "glob": "^7.2.3",
     "lodash": "^4.17.21",
     "minimist": "^1.2.7",
     "wiki-client": "^0.28.0",
