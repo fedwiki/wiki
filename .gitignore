@@ -2,3 +2,6 @@ data
 node_modules
 *.log
 
+# Nix build results
+*result*
+
