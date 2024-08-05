@@ -30,7 +30,7 @@
     "glob": "^7.2.3",
     "lodash": "^4.17.21",
     "minimist": "^1.2.7",
-    "wiki-client": "^0.30.0-rc.1",
+    "wiki-client": "^0.30.0-rc.2",
     "wiki-plugin-activity": "^0.6.0",
     "wiki-plugin-assets": "^0.5.1",
     "wiki-plugin-audio": "^0.2.0",
@@ -74,7 +74,7 @@
     "wiki-plugin-video": "^0.3.0",
     "wiki-security-friends": "^0.2.3",
     "wiki-security-passportjs": "^0.9.0",
-    "wiki-server": "^0.24.0"
+    "wiki-server": "^0.25.0"
   },
   "devDependencies": {
     "grunt": "^1.4.1",
