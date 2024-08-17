@@ -1,6 +1,6 @@
 {
   "name": "wiki",
-  "version": "0.37.0-rc.3",
+  "version": "0.37.0",
   "bin": {
     "wiki": "./index.js"
   },
