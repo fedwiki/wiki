@@ -17,7 +17,6 @@ cluster = require 'cluster'
 
 parseArgs = require 'minimist'
 cc = require 'config-chain'
-glob = require 'glob'
 server = require 'wiki-server'
 
 farm = require './farm'
@@ -39,7 +38,7 @@ opts = {
     conf: 'config'
     v: 'version'
   }
-} 
+}
 
 argv = parseArgs(process.argv.slice(2), opts)
 
@@ -75,15 +74,11 @@ if argv.help
 
 # If v/version is set print the version of the wiki components and exit.
 if argv.version
+  details = require('./package')
   console.log('wiki: ' + require('./package').version)
-  console.log('wiki-server: ' + require('wiki-server/package').version)
-  console.log('wiki-client: ' + require('wiki-client/package').version)
-  glob 'wiki-security-*', {cwd: config.packageDir}, (e, plugins) ->
-    plugins.map (plugin) ->
-      console.log(plugin + ": " + require(plugin + "/package").version)
-  glob 'wiki-plugin-*', {cwd: config.packageDir}, (e, plugins) ->
-    plugins.map (plugin) ->
-      console.log(plugin + ': ' + require(plugin + '/package').version)
+  components = Object.keys(details.dependencies).filter((i) -> i.startsWith('wiki'))
+  components.forEach((component) ->
+    console.log(component + ': ' + require(component + '/package').version))
   return
 
 if argv.test
