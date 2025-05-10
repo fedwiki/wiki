@@ -29,7 +29,7 @@
     "config-chain": "^1.1.13",
     "lodash": "^4.17.21",
     "minimist": "^1.2.7",
-    "wiki-client": "^0.31.0",
+    "wiki-client": "^0.31.1",
     "wiki-plugin-activity": "^0.7.0",
     "wiki-plugin-assets": "^0.7.0",
     "wiki-plugin-audio": "^0.3.0",
@@ -71,7 +71,7 @@
     "wiki-plugin-video": "^0.4.0",
     "wiki-security-friends": "^0.2.3",
     "wiki-security-passportjs": "^0.11.1",
-    "wiki-server": "^0.25.8"
+    "wiki-server": "^0.25.10"
   },
   "devDependencies": {
     "grunt-git-authors": "^3.2.0"
