@@ -10,7 +10,6 @@
 // The farm module works by putting a bouncy host based proxy
 // in front of servers that it creates
 
-let exports;
 const path = require('path');
 const fs = require('fs');
 const chokidar = require('chokidar');
