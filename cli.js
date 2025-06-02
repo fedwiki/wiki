@@ -17,7 +17,6 @@ const cluster = require('cluster');
 
 const parseArgs = require('minimist');
 const cc = require('config-chain');
-const glob = require('glob');
 const server = require('wiki-server');
 
 const farm = require('./farm');
@@ -77,11 +76,12 @@ Options:
 
 // If v/version is set print the version of the wiki components and exit.
 if (argv.version) {
-  console.log('wiki: ' + require('./package').version);
-  console.log('wiki-server: ' + require('wiki-server/package').version);
-  console.log('wiki-client: ' + require('wiki-client/package').version);
-  glob('wiki-security-*', {cwd: config.packageDir}, (e, plugins) => plugins.map(plugin => console.log(plugin + ": " + require(plugin + "/package").version)));
-  glob('wiki-plugin-*', {cwd: config.packageDir}, (e, plugins) => plugins.map(plugin => console.log(plugin + ': ' + require(plugin + '/package').version)));
+  const details = require('./package')
+  console.log('wiki: ' + require('./package').version)
+  const components = Object.keys(details.dependencies).filter((i) => i.startsWith('wiki'))
+  components.forEach((component) => {
+    console.log(component + ': ' + require(component + '/package').version)
+  })
   return;
 }
 
