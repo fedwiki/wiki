@@ -1,8 +1,8 @@
 {
   "name": "wiki",
-  "version": "0.37.1",
+  "version": "0.38.1",
   "bin": {
-    "wiki": "./index.js"
+    "wiki": "index.js"
   },
   "description": "Federated Wiki",
   "author": {
@@ -11,87 +11,83 @@
     "url": "http://wiki-paul90.rhcloud.com"
   },
   "contributors": [
-    {
-      "name": "Nick Niemeir",
-      "email": "nick.niemeir@gmail.com",
-      "url": "http://nrn.io"
-    },
-    {
-      "name": "Ward Cunningham",
-      "email": "ward@c2.com",
-      "url": "http://ward.fed.wiki.org"
-    }
+    "Paul Rodwell <paul.rodwell@btinternet.com>",
+    "Ward Cunningham <ward@c2.com>",
+    "Nick Niemeir <nick.niemeir@gmail.com>",
+    "Leander <leander@wesrc.com>",
+    "Thomas Kalka <thomas.kalka@co-buero.de>",
+    "Santiago Ferreira <santiago.ferreira@wyeworks.com>",
+    "Sebastian Hoß <mail@shoss.de>",
+    "Eric Dobbs <eric@dobbse.net>",
+    "Callum Macdonald <github.com@callum-macdonald.com>",
+    "Joshua Benuck <joshua_benuck@yahoo.com>"
   ],
   "license": "MIT",
   "dependencies": {
-    "chokidar": "^3.5.2",
+    "chokidar": "^4.0.3",
     "coffeescript": "^2.6.0",
     "config-chain": "^1.1.13",
-    "glob": "^7.2.3",
     "lodash": "^4.17.21",
     "minimist": "^1.2.7",
-    "wiki-client": "^0.30.0",
-    "wiki-plugin-activity": "^0.6.0",
-    "wiki-plugin-assets": "^0.5.1",
-    "wiki-plugin-audio": "^0.2.0",
-    "wiki-plugin-bars": "^0.5.0",
-    "wiki-plugin-calculator": "^0.5.0",
-    "wiki-plugin-calendar": "^0.3.0",
-    "wiki-plugin-changes": "^0.4.0",
-    "wiki-plugin-chart": "^0.4.0",
-    "wiki-plugin-code": "^0.4.0",
-    "wiki-plugin-data": "^0.3.0",
-    "wiki-plugin-factory": "^0.3.0",
-    "wiki-plugin-favicon": "^0.3.0",
-    "wiki-plugin-flagmatic": "^0.2.0",
-    "wiki-plugin-force": "^0.5.0",
+    "wiki-client": "^0.31.1",
+    "wiki-plugin-activity": "^0.7.0",
+    "wiki-plugin-assets": "^0.7.0",
+    "wiki-plugin-audio": "^0.3.0",
+    "wiki-plugin-bars": "^0.6.0",
+    "wiki-plugin-calculator": "^0.6.0",
+    "wiki-plugin-calendar": "^0.4.0",
+    "wiki-plugin-changes": "^0.5.0",
+    "wiki-plugin-chart": "^0.5.0",
+    "wiki-plugin-code": "^0.5.0",
+    "wiki-plugin-data": "^0.4.0",
+    "wiki-plugin-factory": "^0.4.0",
+    "wiki-plugin-flagmatic": "^0.3.0",
+    "wiki-plugin-force": "^0.6.0",
     "wiki-plugin-frame": "^0.10.1",
-    "wiki-plugin-future": "^0.4.0",
+    "wiki-plugin-future": "^0.4.1",
     "wiki-plugin-graphviz": "^0.11.2",
-    "wiki-plugin-grep": "^1.1.0",
-    "wiki-plugin-html": "^0.5.1",
-    "wiki-plugin-image": "^0.5.0",
-    "wiki-plugin-line": "^0.5.0",
-    "wiki-plugin-map": "^0.8.0",
-    "wiki-plugin-markdown": "^0.4.1",
-    "wiki-plugin-math": "^0.1.0",
-    "wiki-plugin-metabolism": "^0.3.0",
-    "wiki-plugin-method": "^0.3.0",
-    "wiki-plugin-pagefold": "^0.3.0",
-    "wiki-plugin-paragraph": "^0.3.0",
-    "wiki-plugin-plugmatic": "^1.3.1",
-    "wiki-plugin-pushpin": "^0.5.0",
-    "wiki-plugin-radar": "^0.5.0",
-    "wiki-plugin-recycler": "^0.3.0",
-    "wiki-plugin-reduce": "^0.3.0",
-    "wiki-plugin-reference": "^0.3.0",
-    "wiki-plugin-report": "^0.3.0",
-    "wiki-plugin-rollup": "^0.3.0",
-    "wiki-plugin-roster": "^0.3.0",
-    "wiki-plugin-scatter": "^0.5.0",
-    "wiki-plugin-search": "^0.2.0",
-    "wiki-plugin-transport": "^0.2.0",
-    "wiki-plugin-video": "^0.3.0",
+    "wiki-plugin-grep": "^1.1.1",
+    "wiki-plugin-html": "^0.6.0",
+    "wiki-plugin-image": "^0.6.0",
+    "wiki-plugin-line": "^0.6.0",
+    "wiki-plugin-map": "^0.9.0",
+    "wiki-plugin-markdown": "^0.5.0",
+    "wiki-plugin-math": "^0.2.0",
+    "wiki-plugin-metabolism": "^0.4.0",
+    "wiki-plugin-method": "^0.4.0",
+    "wiki-plugin-pagefold": "^0.4.0",
+    "wiki-plugin-paragraph": "^0.4.0",
+    "wiki-plugin-plugmatic": "^1.4.0",
+    "wiki-plugin-pushpin": "^0.6.0",
+    "wiki-plugin-radar": "^0.6.0",
+    "wiki-plugin-recycler": "^0.4.0",
+    "wiki-plugin-reduce": "^0.4.0",
+    "wiki-plugin-reference": "^0.4.0",
+    "wiki-plugin-rollup": "^0.4.0",
+    "wiki-plugin-roster": "^0.4.0",
+    "wiki-plugin-scatter": "^0.6.0",
+    "wiki-plugin-search": "^0.3.0",
+    "wiki-plugin-transport": "^0.3.0",
+    "wiki-plugin-video": "^0.4.0",
     "wiki-security-friends": "^0.2.3",
-    "wiki-security-passportjs": "^0.10.0",
-    "wiki-server": "^0.25.0"
+    "wiki-security-passportjs": "^0.11.1",
+    "wiki-server": "^0.25.10"
   },
   "devDependencies": {
-    "grunt": "^1.4.1",
     "grunt-git-authors": "^3.2.0"
   },
   "scripts": {
     "start": "node index.js",
-    "migrate": "node scripts/wiki-migrate.js"
+    "update-authors": "node scripts/update-authors.js"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/fedwiki/wiki.git"
+    "url": "git+https://github.com/fedwiki/wiki.git"
   },
   "bugs": {
     "url": "https://github.com/fedwiki/wiki/issues"
   },
   "engines": {
-    "node": ">=18"
+    "node": ">=20"
   }
 }
