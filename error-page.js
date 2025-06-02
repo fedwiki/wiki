@@ -1,5 +1,5 @@
-const render = function(title, errorText, messageText) {
-    return `\
+const render = function (title, errorText, messageText) {
+  return `\
 <!DOCTYPE html>
 <html>
 <head>
@@ -47,7 +47,7 @@ const render = function(title, errorText, messageText) {
     </section>
 </body>
 </html>\
-`;
-};
+`
+}
 
-module.exports = {render};
+module.exports = { render }
