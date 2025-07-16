@@ -1,6 +1,6 @@
 {
   "name": "wiki",
-  "version": "0.38.3",
+  "version": "0.38.1",
   "bin": {
     "wiki": "index.js"
   },
@@ -29,7 +29,7 @@
     "config-chain": "^1.1.13",
     "lodash": "^4.17.21",
     "minimist": "^1.2.7",
-    "wiki-client": "^0.31.2",
+    "wiki-client": "^0.31.1",
     "wiki-plugin-activity": "^0.7.0",
     "wiki-plugin-assets": "^0.7.2",
     "wiki-plugin-audio": "^0.3.0",
@@ -48,7 +48,7 @@
     "wiki-plugin-graphviz": "^0.11.2",
     "wiki-plugin-grep": "^1.1.1",
     "wiki-plugin-html": "^0.6.0",
-    "wiki-plugin-image": "^0.6.3",
+    "wiki-plugin-image": "^0.6.2",
     "wiki-plugin-line": "^0.6.0",
     "wiki-plugin-map": "^0.9.0",
     "wiki-plugin-markdown": "^0.5.0",
@@ -74,10 +74,15 @@
     "wiki-server": "^0.25.10"
   },
   "devDependencies": {
-    "grunt-git-authors": "^3.2.0"
+    "grunt-git-authors": "^3.2.0",
+    "@eslint/js": "^9.27.0",
+    "eslint": "^9.27.0",
+    "prettier": "^3.5.3"
   },
   "scripts": {
     "start": "node index.js",
+    "prettier:format": "prettier --write '*.js'",
+    "prettier:check": "prettier --check *.js",
     "update-authors": "node scripts/update-authors.js"
   },
   "repository": {
