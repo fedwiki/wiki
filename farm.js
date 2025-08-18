@@ -215,6 +215,14 @@ module.exports = exports = function (argv) {
         newargv.wiki_domain = inWikiDomain
       }
 
+      // Warn about localhost subdomain limitations in farm mode
+      const hostDomain = incHost.split(':')[0]
+      if (hostDomain.endsWith('.localhost')) {
+        console.log('WARNING: Localhost subdomains may cause authentication issues in farm mode.')
+        console.log('  Consider using *.localtest.me domains for reliable local development.')
+        console.log('  See: https://tools.ietf.org/html/rfc6761#section-6.3\n')
+      }
+
       // Create a new server, add it to the list of servers, and
       // once it's ready send the request to it.
       const local = server(newargv)
