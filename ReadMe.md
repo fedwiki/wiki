@@ -8,8 +8,9 @@
 Since the earlier creation of the node version, to complement the original Ruby implementation, there has been a risk of the two versions diverging. A first step to prevent divergence was to extract the client code into the [wiki-client](https://github.com/WardCunningham/wiki-client). This wiki-client was then used by both the Ruby and Node servers. However, with both server repositories retained the static components of the client, together with the plug-ins there remained some risk of divergence.
 
 In this latest version of the node version of Federated Wiki, we continue by:
-* including all the client components in the wiki-client, and
-* moving all plug-ins into their own repositories, see below for a list.
+
+- including all the client components in the wiki-client, and
+- moving all plug-ins into their own repositories, see below for a list.
 
 When we originally extracted the wiki-client, we included it back into wiki whilst building the wiki package. This had the unforeseen consequence that when creating an updated wiki-client it was also necessary to create a new version of the wiki package for the updated client to be available. To avoid this we no longer include wiki packages in the package for the server.
 
@@ -37,7 +38,7 @@ If you would prefer to test wiki without installing system wide, you can do the 
 
 Without the `--data` argument, running `wiki` (installed globally or otherwise) will store data in `~/.wiki`.
 
-*N.B. The wiki packages must to be installed with `--global-style` to work.*
+_N.B. The wiki packages must to be installed with `--global-style` to work._
 
 ## Updating the Server Software
 
@@ -59,22 +60,21 @@ If you installed the wiki package locally, rather than globally, you can run `np
 
 Options for the server can be passed in many ways:
 
-* As command line flags
-* As a configuration JSON file specified with --config
-* As a config.json file in the root folder or cwd.
-* As env vars prefixed with `wiki_`
+- As command line flags
+- As a configuration JSON file specified with --config
+- As a config.json file in the root folder or cwd.
+- As env vars prefixed with `wiki_`
 
 Higher in the list takes precedence.
 The server will then try to guess all unspecified options.
 
 ### Configuring Security
 
-By default a *default* security module is configured. This makes the wiki read only.
+By default a _default_ security module is configured. This makes the wiki read only.
 
-Details on how to configure the bundled [Passport](http://passportjs.org/) based
-security module, and the migration from using Mozilla Persona, see [security configuration](./security.md)
+See [security configuration](./security.md) for details on how to configure the bundled security modules.
 
-**N.B.** The Mozilla Persona service closes on 30th November 2016.
+**WARNING:** If using localhost subdomains, and farm mode, the whay cookies behave will prevent SSO across wiki in a subdomain from working.
 
 ### Neighborhood Seeding
 
@@ -91,18 +91,20 @@ Adding `--neighbours 'comma separated list of sites'` will add those sites to th
 
 **NOTE:** This release sees a change in how the support for different
 datastores is provided, and how they are configured. The previous
-configuration method is *depreciated*, and will be removed in a future version.
+configuration method is _depreciated_, and will be removed in a future version.
 
 There are a number of legacy [database page stores](./db-page-stores.md)
+
 - they DO NOT work with wiki in farm mode.
 
 ---
 
 A number of datastores are supported. Use the --database and --data options to configure, or use the config.json.
 
-The default location of the datastore is ```~/.wiki```, which contains two sub-directories ```pages``` and ```status```:
-* ```pages``` is used with flatfiles, or leveldb, to store your pages, and
-* ```status``` stores the site's favicon, and a file containing the identity (email address) of the site owner.
+The default location of the datastore is `~/.wiki`, which contains two sub-directories `pages` and `status`:
+
+- `pages` is used with flatfiles, or leveldb, to store your pages, and
+- `status` stores the site's favicon, and a file containing the identity (email address) of the site owner.
 
 #### flatfiles (default)
 
