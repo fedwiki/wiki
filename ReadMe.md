@@ -74,7 +74,7 @@ By default a _default_ security module is configured. This makes the wiki read o
 
 See [security configuration](./security.md) for details on how to configure the bundled security modules.
 
-**WARNING:** If using localhost subdomains, and farm mode, the whay cookies behave will prevent SSO across wiki in a subdomain from working.
+**WARNING:** If using localhost subdomains, and farm mode, the way cookies behave will prevent SSO across wiki in a subdomain from working.
 
 ### Neighborhood Seeding
 
