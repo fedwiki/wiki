@@ -25,8 +25,6 @@
   "license": "MIT",
   "dependencies": {
     "chokidar": "^4.0.3",
-    "coffeescript": "^2.6.0",
-    "config-chain": "^1.1.13",
     "minimist": "^1.2.7",
     "wiki-client": "^0.31.1",
     "wiki-plugin-activity": "^0.7.0",
@@ -91,6 +89,7 @@
   "bugs": {
     "url": "https://github.com/fedwiki/wiki/issues"
   },
+  "type": "module",
   "engines": {
     "node": ">=20"
   }

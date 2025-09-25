@@ -10,18 +10,17 @@
 // The farm module works by putting a bouncy host based proxy
 // in front of servers that it creates
 
-const path = require('path')
-const fs = require('fs')
-const chokidar = require('chokidar')
+import path from 'node:path'
+import fs from 'node:fs'
+import chokidar from 'chokidar'
 
-const http = require('http')
-// socketio = require 'socket.io'
+import http from 'node:http'
 
-const server = require('wiki-server')
+import server from 'wiki-server'
 
-const errorPage = require('./error-page')
+import * as errorPage from './error-page.js'
 
-module.exports = exports = function (argv) {
+export function farm(argv) {
   // Map incoming hosts to their wiki's port
   let allowDomain, allowHost, inWikiDomain, runningFarmServ, wikiDomains
   const hosts = {}

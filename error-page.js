@@ -50,4 +50,4 @@ const render = function (title, errorText, messageText) {
 `
 }
 
-module.exports = { render }
+export { render }

@@ -11,7 +11,7 @@ export default [
   },
   {
     languageOptions: {
-      sourceType: 'commonjs',
+      sourceType: 'module',
       globals: {
         wiki: 'readonly',
         ...globals.node,
