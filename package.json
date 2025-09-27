@@ -68,7 +68,7 @@
     "wiki-plugin-video": "^0.4.0",
     "wiki-security-friends": "^0.2.3",
     "wiki-security-passportjs": "^0.11.3",
-    "wiki-server": "^0.25.10"
+    "wiki-server": "^0.26.0-rc.6"
   },
   "devDependencies": {
     "@eslint/js": "^9.27.0",
