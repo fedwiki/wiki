@@ -216,21 +216,22 @@ export function farm(argv) {
 
       // Create a new server, add it to the list of servers, and
       // once it's ready send the request to it.
-      const local = server(newargv)
-      // local.io = io
-      hosts[incHost] = local
-      runningServers.push(local)
 
-      // patch in new neighbors
-      if (argv.autoseed) {
-        let neighbors = argv.neighbors ? argv.neighbors + ',' : ''
-        neighbors += Object.keys(hosts).join(',')
-        runningServers.forEach(server => (server.startOpts.neighbors = neighbors))
-      }
+      server(newargv).then(local => {
+        hosts[incHost] = local
+        runningServers.push(local)
 
-      return local.once('owner-set', function () {
-        local.emit('running-serv', farmServ)
-        return hosts[incHost](req, res)
+        // patch in new neighbors
+        if (argv.autoseed) {
+          let neighbors = argv.neighbors ? argv.neighbors + ',' : ''
+          neighbors += Object.keys(hosts).join(',')
+          runningServers.forEach(server => (server.startOpts.neighbors = neighbors))
+        }
+
+        return local.once('owner-set', function () {
+          local.emit('running-serv', farmServ)
+          return hosts[incHost](req, res)
+        })
       })
     }
   })

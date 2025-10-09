@@ -73,7 +73,7 @@ const defaultConfig = {
   port: 3000,
   root: path.dirname(url.fileURLToPath(import.meta.resolve('wiki-server'))),
   home: 'welcome-visitors',
-  security_type: './security',
+  security_type: './security.js',
   data: path.join(getUserHome(), '.wiki'), // see also defaultargs
   packageDir: path.resolve(path.join(path.dirname(new URL(import.meta.url).pathname), 'node_modules')),
   cookieSecret: crypto.randomBytes(64).toString('hex'),
@@ -127,26 +127,42 @@ Options:
     if (!argv.wikiDomains && !argv.allowed) {
       console.log('WARNING : Starting Wiki Farm in promiscous mode\n')
     }
-    if (argv.security_type === './security') {
+    if (argv.security_type === './security.js') {
       if (!argv.security_legacy) {
         console.log('INFORMATION : Using default security - Wiki Farm will be read-only\n')
       }
     }
     farm(config)
   } else {
-    const app = server(config)
-    app.on('owner-set', function (e) {
-      const local = http.Server(app)
-      // app.io = socketio(local)
+    server(config).then(app => {
+      app.on('owner-set', function (e) {
+        const local = http.Server(app)
+        // app.io = socketio(local)
 
-      const serv = local.listen(app.startOpts.port, app.startOpts.host)
-      console.log('Federated Wiki server listening on', app.startOpts.port, 'in mode:', app.settings.env)
-      if (argv.security_type === './security') {
-        if (!argv.security_legacy) {
-          console.log('INFORMATION : Using default security - Wiki will be read-only\n')
+        const serv = local.listen(app.startOpts.port, app.startOpts.host)
+        console.log('Federated Wiki server listening on', app.startOpts.port, 'in mode:', app.settings.env)
+        if (argv.security_type === './security.js') {
+          if (!argv.security_legacy) {
+            console.log('INFORMATION : Using default security - Wiki will be read-only\n')
+          }
         }
-      }
-      app.emit('running-serv', serv)
+        app.emit('running-serv', serv)
+      })
     })
+
+    // const app = server(config)
+    // app.on('owner-set', function (e) {
+    //   const local = http.Server(app)
+    //   // app.io = socketio(local)
+
+    //   const serv = local.listen(app.startOpts.port, app.startOpts.host)
+    //   console.log('Federated Wiki server listening on', app.startOpts.port, 'in mode:', app.settings.env)
+    //   if (argv.security_type === './security') {
+    //     if (!argv.security_legacy) {
+    //       console.log('INFORMATION : Using default security - Wiki will be read-only\n')
+    //     }
+    //   }
+    //   app.emit('running-serv', serv)
+    // })
   }
 }
