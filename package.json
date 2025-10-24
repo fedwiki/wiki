@@ -27,7 +27,6 @@
     "chokidar": "^4.0.3",
     "coffeescript": "^2.6.0",
     "config-chain": "^1.1.13",
-    "lodash": "^4.17.21",
     "minimist": "^1.2.7",
     "wiki-client": "^0.31.5",
     "wiki-plugin-activity": "^0.7.0",

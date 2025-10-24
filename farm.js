@@ -19,8 +19,6 @@ const http = require('http')
 
 const server = require('wiki-server')
 
-const _ = require('lodash')
-
 const errorPage = require('./error-page')
 
 module.exports = exports = function (argv) {
@@ -54,7 +52,9 @@ module.exports = exports = function (argv) {
         })
         .on('unlinkDir', function (delWiki) {
           delWiki = path.basename(delWiki)
-          _.pull(allowedHosts, delWiki)
+          // remove deleted wiki directory from the list of allowed wiki
+          allowedHosts.splice(allowedHosts.indexOf(delWiki), 1)
+          // TODO: if wiki server is already running, it needs to be stopped, if that is even possible.
         })
     } else {
       // we have a list of wiki that are allowed
@@ -211,7 +211,7 @@ module.exports = exports = function (argv) {
 
       // apply wiki domain configuration, if defined
       if (inWikiDomain) {
-        newargv = _.assignIn(newargv, newargv.wikiDomains[inWikiDomain])
+        newargv = Object.assign({}, newargv, newargv.wikiDomains[inWikiDomain])
         newargv.wiki_domain = inWikiDomain
       }
 
