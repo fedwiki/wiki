@@ -23,7 +23,7 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "chokidar": "^4.0.3",
+    "chokidar": "^5.0.0",
     "minimist": "^1.2.7",
     "wiki-client": "^0.31.6",
     "wiki-plugin-activity": "^0.7.1",
@@ -67,11 +67,11 @@
     "wiki-plugin-video": "^0.4.0",
     "wiki-security-friends": "^0.3.0",
     "wiki-security-passportjs": "^0.12.0",
-    "wiki-server": "^0.26.1"
+    "wiki-server": "^0.26.2"
   },
   "devDependencies": {
-    "@eslint/js": "^9.39.2",
-    "eslint": "^9.39.2",
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.0.2",
     "grunt-git-authors": "^3.2.0",
     "prettier": "^3.8.1"
   },
