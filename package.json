@@ -27,7 +27,7 @@
     "minimist": "^1.2.7",
     "wiki-client": "^0.31.6",
     "wiki-plugin-activity": "^0.7.1",
-    "wiki-plugin-assets": "^0.7.3",
+    "wiki-plugin-assets": "^0.7.4",
     "wiki-plugin-audio": "^0.3.0",
     "wiki-plugin-bars": "^0.6.0",
     "wiki-plugin-calculator": "^0.6.0",
@@ -44,7 +44,7 @@
     "wiki-plugin-graphviz": "^0.11.9",
     "wiki-plugin-grep": "^1.1.1",
     "wiki-plugin-html": "^0.6.0",
-    "wiki-plugin-image": "^0.7.2",
+    "wiki-plugin-image": "^0.7.3",
     "wiki-plugin-line": "^0.6.0",
     "wiki-plugin-map": "^0.9.0",
     "wiki-plugin-markdown": "^0.5.2",
@@ -66,12 +66,12 @@
     "wiki-plugin-transport": "^0.3.0",
     "wiki-plugin-video": "^0.4.0",
     "wiki-security-friends": "^0.3.0",
-    "wiki-security-passportjs": "^0.12.0",
+    "wiki-security-passportjs": "^0.13.0",
     "wiki-server": "^0.26.2"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
-    "eslint": "^10.0.2",
+    "eslint": "^10.1.0",
     "grunt-git-authors": "^3.2.0",
     "prettier": "^3.8.1"
   },
