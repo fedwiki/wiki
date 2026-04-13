@@ -75,7 +75,7 @@ const defaultConfig = {
   home: 'welcome-visitors',
   security_type: './security.js',
   data: path.join(getUserHome(), '.wiki'), // see also defaultargs
-  packageDir: path.resolve(path.join(path.dirname(new URL(import.meta.url).pathname), 'node_modules')),
+  packageDir: path.resolve(path.join(path.dirname(url.fileURLToPath(import.meta.url)), 'node_modules')),
   cookieSecret: crypto.randomBytes(64).toString('hex'),
 }
 
@@ -85,7 +85,7 @@ const config = await createConfig(
   defaultConfig, // lowest priority
   parseEnvVars('wiki_'), // environment variables
   path.join(getUserHome(), '.wiki', 'config.json'), // user config
-  path.join(path.dirname(new URL(import.meta.url).pathname), '..', 'config.json'), // parent dir config
+  path.join(path.dirname(url.fileURLToPath(import.meta.url)), '..', 'config.json'), // parent dir config
   'config.json', // current dir config
   argv.config, // specified config file
   argv, // command line args (highest priority)
