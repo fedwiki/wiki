@@ -137,9 +137,13 @@ export function farm(argv) {
   }
 
   var farmServ = http.createServer(function (req, res) {
-    let incHost
+    let incHost, incPort
     if (req.headers?.host) {
-      incHost = req.headers.host.split(':')[0]
+      const hostParts = req.headers.host.split(':')
+      incHost = hostParts[0]
+      if (/^\d+$/.test(hostParts[1]) && Number(hostParts[1]) <= 65535) {
+        incPort = hostParts[1]
+      }
     } else {
       res.statusCode = 400
       res.end('Missing host header')
@@ -206,7 +210,8 @@ export function farm(argv) {
       newargv.data = argv.data
         ? path.join(argv.data, incHost.split(':')[0])
         : path.join(argv.root, 'data', incHost.split(':')[0])
-      newargv.url = `http://${incHost}`
+      const sitePort = incPort && incPort !== '80' && incPort !== '443' ? `:${incPort}` : ''
+      newargv.url = `http://${incHost}${sitePort}`
 
       // apply wiki domain configuration, if defined
       if (inWikiDomain) {
