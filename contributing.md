@@ -4,27 +4,27 @@ The wiki consists of a number of GitHub repositories and corresponding npm packa
 
 The repositories are:
 
-* [wiki](https://github.com/fedwiki/wiki) (this repository) -- The **wiki** npm package - a container that installs the individual parts of wiki and starts the server.
-* [wiki-server](https://github.com/fedwiki/wiki-server) -- The **wiki-server** npm package - the node.js wiki server code.
-* [wiki-client](https://github.com/fedwiki/wiki-client) -- The **wiki-client** npm package - the javascript client code, shared with the ruby server implementation
-* [wiki-plugin-*](https://github.com/search?q=%40fedwiki+plugin&type=Repositories&ref=searchresults) -- The many **wiki-plugin** npm packages - dynamically loaded client-side markup extensions.
+- [wiki](https://github.com/fedwiki/wiki) (this repository) -- The **wiki** npm package - a container that installs the individual parts of wiki and starts the server.
+- [wiki-server](https://github.com/fedwiki/wiki-server) -- The **wiki-server** npm package - the node.js wiki server code.
+- [wiki-client](https://github.com/fedwiki/wiki-client) -- The **wiki-client** npm package - the javascript client code, shared with the ruby server implementation
+- [wiki-plugin-*](https://github.com/search?q=%40fedwiki+plugin&type=Repositories&ref=searchresults) -- The many **wiki-plugin** npm packages - dynamically loaded client-side markup extensions.
 
 See [About Plugins](http://plugins.fed.wiki.org/about-plugins.html) for more details about how plug-ins work and about how we develop them.
 
 ## Do's and Don't
 
-* **Never, ever, do anything in master branch.** Always create a branch specific to the issue you're working on.
-* **A branch should only have changes related to a single issue.**
+- **Never, ever, do anything in master branch.** Always create a branch specific to the issue you're working on.
+- **A branch should only have changes related to a single issue.**
 
 ## Working on a component
 
-As the project is split into a number of repositories/npm packages, we need to be able to include the components we are working on into a local copy of the *wiki* package. npm provides two ways of achieving this, using `npm link` or `npm install`.
+As the project is split into a number of repositories/npm packages, we need to be able to include the components we are working on into a local copy of the _wiki_ package. npm provides two ways of achieving this, using `npm link` or `npm install`.
 
-`npm link` works by creating symbolic links. This is good in the early stages of development, as the changes you make to the component will be available as soon as they are rebuilt. Being symbolic links though, you get entire contents of the components repository and not just those you would get when you install the component. See [npm-link](https://docs.npmjs.com/cli/v11/commands/npm-link) man page.
+`npm link` works by creating symbolic links. This is good in the early stages of development, as the changes you make to the component will be available as soon as they are rebuilt. Being symbolic links though, you get entire contents of the components repository and not just those you would get when you install the component. See [npm-link](https://docs.npmjs.com/cli/commands/npm-link) man page.
 
-`npm install` works by installing the package from the repository you are working on. The downside is that you need to run the install each time you rebuild the component. See [npm-install](https://docs.npmjs.com/cli/v11/commands/npm-install) man page.
+`npm install` works by installing the package from the repository you are working on. The downside is that you need to run the install each time you rebuild the component. See [npm-install](https://docs.npmjs.com/cli/commands/npm-install) man page.
 
-You will need a local copy of the *wiki* package, this can either be from GitHub, or installed from npm (though using git is probably simplier).
+You will need a local copy of the _wiki_ package, this can either be from GitHub, or installed from npm (though using git is probably simplier).
 
 If, for example, you were working on the `method` plug-in, you would do something like the following:
 
