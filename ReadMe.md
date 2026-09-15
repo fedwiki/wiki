@@ -33,7 +33,7 @@ Visit localhost:3000 to see your wiki. If you choose a host visible to the inter
 
 If you would prefer to test wiki without installing system wide, you can do the following (in a directory of your choice):
 
-    $ npm install wiki --global-style
+    $ npm install wiki --install-strategy=shallow
     $ npx wiki --data ./data
 
 Without the `--data` argument, running `wiki` (installed globally or otherwise) will store data in `~/.wiki`.
