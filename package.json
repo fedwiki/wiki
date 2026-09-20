@@ -1,6 +1,6 @@
 {
   "name": "wiki",
-  "version": "0.40.2",
+  "version": "0.41.0-rc.3",
   "bin": {
     "wiki": "index.js"
   },
@@ -25,16 +25,16 @@
   "dependencies": {
     "chokidar": "^5.0.0",
     "minimist": "^1.2.7",
-    "wiki-client": "^0.32.0",
+    "wiki-client": "^0.33.0",
     "wiki-plugin-activity": "^0.7.1",
-    "wiki-plugin-assets": "^0.7.4",
+    "wiki-plugin-assets": "^0.7.5",
     "wiki-plugin-audio": "^0.3.0",
     "wiki-plugin-bars": "^0.6.0",
     "wiki-plugin-calculator": "^0.6.0",
     "wiki-plugin-calendar": "^0.4.0",
     "wiki-plugin-changes": "^0.5.0",
     "wiki-plugin-chart": "^0.5.0",
-    "wiki-plugin-code": "^0.6.0",
+    "wiki-plugin-code": "^0.6.1",
     "wiki-plugin-data": "^0.4.0",
     "wiki-plugin-factory": "^0.4.0",
     "wiki-plugin-flagmatic": "^0.3.0",
@@ -44,11 +44,12 @@
     "wiki-plugin-graphviz": "^0.11.9",
     "wiki-plugin-grep": "^1.1.1",
     "wiki-plugin-html": "^0.7.2",
-    "wiki-plugin-image": "^0.8.0",
+    "wiki-plugin-image": "^0.8.1",
+    "wiki-plugin-journalmatic": "^0.2.3",
     "wiki-plugin-line": "^0.6.0",
-    "wiki-plugin-map": "^0.9.1",
+    "wiki-plugin-map": "^0.10.0",
     "wiki-plugin-markdown": "^0.5.3",
-    "wiki-plugin-math": "^0.2.0",
+    "wiki-plugin-math": "^0.3.0",
     "wiki-plugin-metabolism": "^0.4.0",
     "wiki-plugin-method": "^0.4.1",
     "wiki-plugin-pagefold": "^0.4.0",
@@ -67,13 +68,14 @@
     "wiki-plugin-video": "^0.4.0",
     "wiki-security-friends": "^0.3.1",
     "wiki-security-passportjs": "^0.14.0",
-    "wiki-server": "^0.27.0"
+    "wiki-security-social": "^0.1.0",
+    "wiki-server": "^0.28.0"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
-    "eslint": "^10.3.0",
+    "eslint": "^10.5.0",
     "grunt-git-authors": "^3.2.0",
-    "prettier": "^3.8.3"
+    "prettier": "^3.8.4"
   },
   "scripts": {
     "start": "node index.js",
@@ -90,6 +92,6 @@
   },
   "type": "module",
   "engines": {
-    "node": ">=20"
+    "node": ">=22"
   }
 }

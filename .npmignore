@@ -3,3 +3,4 @@ scripts
 .prettier*
 .vscode
 .zed
+cve-report
