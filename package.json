@@ -19,7 +19,10 @@
     "Sebastian Hoß <mail@shoss.de>",
     "Eric Dobbs <eric@dobbse.net>",
     "Callum Macdonald <github.com@callum-macdonald.com>",
-    "Joshua Benuck <joshua_benuck@yahoo.com>"
+    "Joshua Benuck <joshua_benuck@yahoo.com>",
+    "Konrad Hinsen <khinsen@users.noreply.github.com>",
+    "Robert Best <chessscholar@gmail.com>",
+    "Christian Galo <git.smog979@passmail.com>"
   ],
   "license": "MIT",
   "dependencies": {
@@ -81,7 +84,7 @@
     "start": "node index.js",
     "prettier:format": "prettier --write '*.js'",
     "prettier:check": "prettier --check *.js",
-    "update-authors": "node scripts/update-authors.js"
+    "update-authors": "node scripts/update-authors.cjs"
   },
   "repository": {
     "type": "git",
