@@ -53,7 +53,12 @@ export function farm(argv) {
           delWiki = path.basename(delWiki)
           // remove deleted wiki directory from the list of allowed wiki
           allowedHosts.splice(allowedHosts.indexOf(delWiki), 1)
-          // TODO: if wiki server is already running, it needs to be stopped, if that is even possible.
+          // forget its server, if one is running, so requests stop going to it
+          const local = hosts[delWiki]
+          if (local) {
+            delete hosts[delWiki]
+            runningServers.splice(runningServers.indexOf(local), 1)
+          }
         })
     } else {
       // we have a list of wiki that are allowed
